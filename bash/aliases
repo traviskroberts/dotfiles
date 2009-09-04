@@ -15,6 +15,16 @@ function ap() {
   cd ~/apacheprojects/$1/
 }
 
+# get a list of routes (symfony or rails)
+function routes() {
+  if [ -f symfony ];
+  then
+    ./symfony app:routes $1
+  else
+    rake routes
+  fi
+}
+
 
 # svn
 alias up="svn update"
