@@ -4,6 +4,7 @@ alias ll='ls -lah'
 alias ..='cd ..'
 alias df='source ~/.bash_profile'
 alias md='mate ~/bin/dotfiles/bash'
+alias apachectl='sudo /opt/local/apache2/bin/apachectl'
 
 # switch to symfony dir
 function sf() {
