@@ -1,10 +1,10 @@
 # all-purpose aliases
 alias h='cd ~'
-alias ll='ls -lah'
+alias ll='ls -lahF'
 alias ..='cd ..'
 alias df='source ~/.bash_profile'
 alias md='mate ~/bin/dotfiles/bash'
-alias apachectl='sudo /opt/local/apache2/bin/apachectl'
+alias apache='sudo /opt/local/apache2/bin/apachectl'
 
 # switch to symfony dir
 function sf() {
@@ -38,13 +38,12 @@ alias rm_all="svn st | grep '^\!' | awk '{print \$2}' | xargs svn rm"
 alias reset="svn st | grep '^\?' | awk '{print \$2}' | xargs rm -rf"
 
 # ssh
-alias travisonrails="ssh deploy@travisonrails.com"
+alias tor="ssh deploy@travisonrails.com"
 alias webbynode="ssh deploy@webbynode"
 alias staging="ssh troberts@staging.centresource.com -p 5344"
 alias lamp="ssh troberts@lamp5.centresource.com -p 5344"
 alias vpn="ssh troberts@vpn.corp.centresource.com -p 5344"
 alias monet="ssh troberts@monet.centresource.com -p 5344"
-alias linode="ssh travisr@linode"
 
 # rails
 alias ss="script/server"
@@ -56,6 +55,13 @@ alias rdbm="rake db:migrate"
 alias cc='./symfony cache:clear'
 alias dbar='./symfony doctrine:build-all-reload'
 alias ddl='./symfony doctrine:data-load'
+alias dql='./symfony doctrine:dql'
+
+# drush
+alias drush="/usr/local/lib/drush/drush"
+
+# s3
+alias s3="/usr/lib/s3sync/s3cmd.rb"
 
 # git
 # Commit pending changes and quote all args as message
@@ -63,5 +69,9 @@ function gg() {
     git commit -a -m "$*"
 }
 
-# drush
-alias drush="/usr/local/lib/drush/drush"
+# php
+# Gets arguments for supplied php function
+phpargs() {
+  curl -s http://us3.php.net/$1 | sed -n '/<div class="methodsynopsis dc-description">/,/<\/div>/p' | sed 's/<[^>]*>//g' | tr -d "\n"
+  echo
+}
