@@ -1,35 +1,18 @@
 # all-purpose aliases
 alias h='cd ~'
-alias ll='ls -lahF'
+alias c='clear'
+alias hc='cd ~ && clear'
+alias ll='ls -lhF'
+alias lla='ls -lahF'
 alias ..='cd ..'
 alias df='source ~/.bash_profile'
-alias md='mate ~/bin/dotfiles/bash'
+alias mdf='mate ~/bin/dotfiles/bash'
 alias apache='sudo /opt/local/apache2/bin/apachectl'
-
-# switch to symfony dir
-function sf() {
-  cd ~/sfprojects/$1/
-}
-
-# switch to apacheprojects dir
-function ap() {
-  cd ~/apacheprojects/$1/
-}
-
-# get a list of routes (symfony or rails)
-function routes() {
-  if [ -f symfony ];
-  then
-    ./symfony app:routes $1
-  else
-    rake routes
-  fi
-}
-
 
 # svn
 alias up="svn update"
-alias st="svn status --ignore-externals"
+alias st="svn status --quiet --ignore-externals"
+alias sta="svn status --ignore-externals"
 alias ci="svn commit -m"
 alias add="svn add"
 alias ignore="svn propedit svn:ignore"
@@ -37,9 +20,15 @@ alias add_all="svn st | grep '^\?' | awk '{print \$2}' | xargs svn add"
 alias rm_all="svn st | grep '^\!' | awk '{print \$2}' | xargs svn rm"
 alias reset="svn st | grep '^\?' | awk '{print \$2}' | xargs rm -rf"
 
+# git-svn
+alias gs="git svn"
+alias gst="git svn status"
+alias gsci="git svn commit -a -m"
+alias gsp="git svn push"
+alias gsu="git svn pull"
+
 # ssh
-alias tor="ssh deploy@travisonrails.com"
-alias webbynode="ssh deploy@webbynode"
+alias prgmr="ssh deploy@troberts.xen.prgmr.com"
 alias staging="ssh troberts@staging.centresource.com -p 5344"
 alias lamp="ssh troberts@lamp5.centresource.com -p 5344"
 alias vpn="ssh troberts@vpn.corp.centresource.com -p 5344"
@@ -63,15 +52,43 @@ alias drush="/usr/local/lib/drush/drush"
 # s3
 alias s3="/usr/lib/s3sync/s3cmd.rb"
 
-# git
+# scp given path from staging server
+function scp_staging() {
+  scp troberts@staging.centresource.com:$1 ./
+}
+
 # Commit pending changes and quote all args as message
 function gg() { 
     git commit -a -m "$*"
 }
 
-# php
+# switch to symfony dir
+function sf() {
+  cd ~/sfprojects/$1/
+}
+
+# switch to apacheprojects dir
+function ap() {
+  cd ~/apacheprojects/$1/
+}
+
+# get a list of routes (symfony or rails)
+function routes() {
+  if [ -f symfony ];
+  then
+    ./symfony app:routes $1
+  else
+    rake routes
+  fi
+}
+
+# run an 'ls' on a svn dir
+function sls() {
+	svn ls http://svn.centresource.com/$1/$2
+}
+
 # Gets arguments for supplied php function
-phpargs() {
+function phpargs() {
   curl -s http://us3.php.net/$1 | sed -n '/<div class="methodsynopsis dc-description">/,/<\/div>/p' | sed 's/<[^>]*>//g' | tr -d "\n"
   echo
 }
