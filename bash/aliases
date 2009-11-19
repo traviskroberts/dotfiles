@@ -22,10 +22,8 @@ alias reset="svn st | grep '^\?' | awk '{print \$2}' | xargs rm -rf"
 
 # git-svn
 alias gs="git svn"
-alias gst="git svn status"
-alias gsci="git svn commit -a -m"
-alias gsp="git svn push"
-alias gsu="git svn pull"
+alias gsd="git svn dcommit"
+alias gsf="git svn fetch"
 
 # ssh
 alias prgmr="ssh deploy@troberts.xen.prgmr.com"
