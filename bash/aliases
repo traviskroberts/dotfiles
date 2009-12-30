@@ -22,6 +22,7 @@ alias reset="svn st | grep '^\?' | awk '{print \$2}' | xargs rm -rf"
 
 # git-svn
 alias gs="git svn"
+alias gsr="git svn rebase"
 alias gsd="git svn dcommit"
 alias gsf="git svn fetch"
 
@@ -41,11 +42,15 @@ alias rdbm="rake db:migrate"
 # symfony
 alias cc='./symfony cache:clear'
 alias dbar='./symfony doctrine:build-all-reload'
-alias ddl='./symfony doctrine:data-load'
-alias dql='./symfony doctrine:dql'
+alias dbal='./symfony doctrine:build --all --and-load=data/fixtures/'
+alias dbat='./symfony doctrine:build --all --env=test --and-load=test/fixtures/'
+alias fix='./symfony doctrine:data-load data/fixtures/'
+alias tfix='./symfony doctrine:data-load test/fixtures/ --env=test'
 
-# drush
+# drush/drupal
 alias drush="/usr/local/lib/drush/drush"
+alias dl_modules="/usr/local/lib/drush/drush dl cck link date filefield imagefield imagecache imageapi admin_menu webform views pathauto token menu_breadcrumb extlink automenu menu_block advanced_help tagadelic google_analytics zen zenophile search404"
+alias enable_modules="/usr/local/lib/drush/drush enable admin_menu content content_copy fieldgroup filefield imagefield link nodereference number optionwidgets text zenophile imageapi imageapi_gd imagecache imagecache_ui advanced_help automenu menu_block menu_breadcrumb pathauto search404 token extlink views views_export views_ui"
 
 # s3
 alias s3="/usr/lib/s3sync/s3cmd.rb"
