@@ -8,6 +8,7 @@ alias ..='cd ..'
 alias df='source ~/.bash_profile'
 alias mdf='mate ~/bin/dotfiles/bash'
 alias apache='sudo /opt/local/apache2/bin/apachectl'
+alias pshop='open -a /Applications/Adobe\ Photoshop\ CS3/Adobe\ Photoshop\ CS3.app/'
 
 # svn
 alias up="svn update"
@@ -19,6 +20,7 @@ alias ignore="svn propedit svn:ignore"
 alias add_all="svn st | grep '^\?' | awk '{print \$2}' | xargs svn add"
 alias rm_all="svn st | grep '^\!' | awk '{print \$2}' | xargs svn rm"
 alias reset="svn st | grep '^\?' | awk '{print \$2}' | xargs rm -rf"
+alias svn_delete="find . -type d -name .svn | xargs rm -rf"
 
 # git-svn
 alias gs="git svn"
@@ -32,6 +34,8 @@ alias staging="ssh troberts@staging.centresource.com -p 5344"
 alias lamp="ssh troberts@lamp5.centresource.com -p 5344"
 alias vpn="ssh troberts@vpn.corp.centresource.com -p 5344"
 alias monet="ssh troberts@monet.centresource.com -p 5344"
+alias singer="ssh centresource@singerco.com -p 5344"
+alias tapit="ssh tntapit5@tapit.org -p 7822"
 
 # rails
 alias ss="script/server"
@@ -40,12 +44,14 @@ alias sg="script/generate"
 alias rdbm="rake db:migrate"
 
 # symfony
-alias cc='./symfony cache:clear'
-alias dbar='./symfony doctrine:build-all-reload'
-alias dbal='./symfony doctrine:build --all --and-load=data/fixtures/'
-alias dbat='./symfony doctrine:build --all --env=test --and-load=test/fixtures/'
-alias fix='./symfony doctrine:data-load data/fixtures/'
-alias tfix='./symfony doctrine:data-load test/fixtures/ --env=test'
+alias s='php symfony'
+alias scc='php symfony cache:clear'
+alias dbar='php symfony doctrine:build-all-reload --no-confirmation'
+alias dbal='php symfony doctrine:build --all --and-load=data/fixtures/ --no-confirmation'
+alias dbat='php symfony doctrine:build --all --env=test --and-load=test/fixtures/ --no-confirmation'
+alias fix='php symfony doctrine:data-load data/fixtures/'
+alias tfix='php symfony doctrine:data-load test/fixtures/ --env=test'
+alias dbuild='php symfony doctrine:build-model && php symfony doctrine:build-form && php symfony doctrine:build-filter && php symfony doctrine:build-sql'
 
 # drush/drupal
 alias drush="/usr/local/lib/drush/drush"
@@ -79,7 +85,7 @@ function ap() {
 function routes() {
   if [ -f symfony ];
   then
-    ./symfony app:routes $1
+    php symfony app:routes $1
   else
     rake routes
   fi
