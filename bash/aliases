@@ -8,7 +8,6 @@ alias ..='cd ..'
 alias df='source ~/.bash_profile'
 alias mdf='mate ~/bin/dotfiles/bash'
 alias apache='sudo /opt/local/apache2/bin/apachectl'
-alias pshop='open -a /Applications/Adobe\ Photoshop\ CS3/Adobe\ Photoshop\ CS3.app/'
 
 # svn
 alias up="svn update"
@@ -27,15 +26,6 @@ alias gs="git svn"
 alias gsr="git svn rebase"
 alias gsd="git svn dcommit"
 alias gsf="git svn fetch"
-
-# ssh
-alias prgmr="ssh deploy@troberts.xen.prgmr.com"
-alias staging="ssh troberts@staging.centresource.com -p 5344"
-alias lamp="ssh troberts@lamp5.centresource.com -p 5344"
-alias vpn="ssh troberts@vpn.corp.centresource.com -p 5344"
-alias monet="ssh troberts@monet.centresource.com -p 5344"
-alias singer="ssh centresource@singerco.com -p 5344"
-alias tapit="ssh tntapit5@tapit.org -p 7822"
 
 # rails
 alias ss="script/server"
