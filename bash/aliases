@@ -8,6 +8,12 @@ alias ..='cd ..'
 alias df='source ~/.bash_profile'
 alias mdf='mate ~/bin/dotfiles/bash'
 alias apache='sudo /opt/local/apache2/bin/apachectl'
+alias dir_size='du -sh'
+alias flush_cache='dscacheutil -flushcache'
+
+# mysql
+alias mysqlstart='sudo /opt/local/bin/mysqld_safe5 &'
+alias mysqlstop='/opt/local/bin/mysqladmin5 -u root -p shutdown'
 
 # svn
 alias up="svn update"
@@ -20,6 +26,8 @@ alias add_all="svn st | grep '^\?' | awk '{print \$2}' | xargs svn add"
 alias rm_all="svn st | grep '^\!' | awk '{print \$2}' | xargs svn rm"
 alias reset="svn st | grep '^\?' | awk '{print \$2}' | xargs rm -rf"
 alias svn_delete="find . -type d -name .svn | xargs rm -rf"
+alias externals="svn propedit svn:externals"
+alias ignore="svn propedit svn:ignore"
 
 # git-svn
 alias gs="git svn"
@@ -33,15 +41,24 @@ alias sc="script/console"
 alias sg="script/generate"
 alias rdbm="rake db:migrate"
 
+# rails3
+alias rg="rails generate"
+alias rsm="rails server mongrel"
+
+# cucumber
+alias cuke="cucumber features -f pretty"
+
 # symfony
 alias s='php symfony'
 alias scc='php symfony cache:clear'
+alias dba='php symfony doctrine:build --all --no-confirmation'
 alias dbar='php symfony doctrine:build-all-reload --no-confirmation'
 alias dbal='php symfony doctrine:build --all --and-load=data/fixtures/ --no-confirmation'
 alias dbat='php symfony doctrine:build --all --env=test --and-load=test/fixtures/ --no-confirmation'
+alias dbuild='php symfony doctrine:build-model && php symfony doctrine:build-form && php symfony doctrine:build-filter && php symfony doctrine:build-sql'
+alias dbac='php symfony doctrine:build --all-classes'
 alias fix='php symfony doctrine:data-load data/fixtures/'
 alias tfix='php symfony doctrine:data-load test/fixtures/ --env=test'
-alias dbuild='php symfony doctrine:build-model && php symfony doctrine:build-form && php symfony doctrine:build-filter && php symfony doctrine:build-sql'
 
 # drush/drupal
 alias drush="/usr/local/lib/drush/drush"
@@ -90,4 +107,34 @@ function sls() {
 function phpargs() {
   curl -s http://us3.php.net/$1 | sed -n '/<div class="methodsynopsis dc-description">/,/<\/div>/p' | sed 's/<[^>]*>//g' | tr -d "\n"
   echo
+}
+
+function logdebug() {
+  # The first argument is the application (default: frontend)
+  export app=$1
+
+  if [ ! -n "$app" ]; then
+    export app="frontend"
+  fi
+
+  # The second argument is the environment.  (default: dev)
+  export env=$2
+
+  if [ ! -n "$env" ]; then
+    export env="dev"
+  fi
+
+  # The third argument is the grep command.  (default: debug)
+  export grep=$3
+
+  if [ ! -n "$grep" ]; then
+    export grep="debug"
+  fi
+
+  export u="_"
+  export file=$app$u$env.log
+
+  echo "tailing $file..."
+  echo ""
+  tail -f log/$file | grep $grep
 }
