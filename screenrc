@@ -1,0 +1,5 @@
+startup_message off
+# caption always "%{= ..}%-w%{= BW}%n %t%{-}%+w %-= @%H - %D %d %M - %c"
+caption always '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B}%D %Y-%m-%d %{W}%c %{g}]'
+altscreen on
+vbell off

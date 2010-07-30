@@ -6,13 +6,13 @@ alias ll='ls -lhF'
 alias lla='ls -lahF'
 alias ..='cd ..'
 alias df='source ~/.bash_profile'
-alias mdf='mate ~/bin/dotfiles/bash'
+alias mdf='mate ~/bin/dotfiles'
 alias apache='sudo /opt/local/apache2/bin/apachectl'
 alias dir_size='du -sh'
 alias flush_cache='dscacheutil -flushcache'
 
 # mysql
-alias mysqlstart='sudo /opt/local/bin/mysqld_safe5 &'
+alias mysqlstart='sudo /opt/local/share/mysql5/mysql/mysql.server start'
 alias mysqlstop='/opt/local/bin/mysqladmin5 -u root -p shutdown'
 
 # svn
@@ -35,15 +35,13 @@ alias gsr="git svn rebase"
 alias gsd="git svn dcommit"
 alias gsf="git svn fetch"
 
-# rails
-alias ss="script/server"
-alias sc="script/console"
-alias sg="script/generate"
-alias rdbm="rake db:migrate"
+# git
+alias glog="git log -n 10 --format=oneline"
+alias gco="git checkout"
+alias gb="git branch"
 
-# rails3
-alias rg="rails generate"
-alias rsm="rails server mongrel"
+# rails
+alias migrate="rake db:migrate"
 
 # cucumber
 alias cuke="cucumber features -f pretty"
@@ -68,9 +66,36 @@ alias enable_modules="/usr/local/lib/drush/drush enable admin_menu content conte
 # s3
 alias s3="/usr/lib/s3sync/s3cmd.rb"
 
+# rails server (2.x and 3.x)
+function ss {
+  if [ -e script/rails ]; then
+    script/rails server $@
+  else
+    script/server $@
+  fi
+}
+
+# rails console (2.x and 3.x)
+function sc {
+  if [ -e script/rails ]; then
+    script/rails console $@
+  else
+    script/console $@
+  fi
+}
+
+# rails generate (2.x and 3.x)
+function sg {
+  if [ -e script/rails ]; then
+    script/rails generate $@
+  else
+    script/generate $@
+  fi
+}
+
 # scp given path from staging server
 function scp_staging() {
-  scp troberts@staging.centresource.com:$1 ./
+  scp staging:$1 ./
 }
 
 # Commit pending changes and quote all args as message
