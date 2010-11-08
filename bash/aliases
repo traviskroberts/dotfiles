@@ -1,19 +1,23 @@
 # all-purpose aliases
-alias h='cd ~'
-alias c='clear'
-alias hc='cd ~ && clear'
-alias ll='ls -lhF'
-alias lla='ls -lahF'
-alias ..='cd ..'
-alias df='source ~/.bash_profile'
-alias mdf='mate ~/bin/dotfiles'
-alias apache='sudo /opt/local/apache2/bin/apachectl'
-alias dir_size='du -sh'
-alias flush_cache='dscacheutil -flushcache'
+alias h="cd ~"
+alias c="clear"
+alias hc="cd ~ && clear"
+alias ll="ls -lhF"
+alias lla="ls -lahF"
+alias ..="cd .."
+alias df="source ~/.bash_profile"
+alias mdf="mate ~/bin/dotfiles"
+alias apache="sudo /opt/local/apache2/bin/apachectl"
+alias dir_size="du -sh"
+alias flush_cache="dscacheutil -flushcache"
 
 # mysql
-alias mysqlstart='sudo /opt/local/share/mysql5/mysql/mysql.server start'
-alias mysqlstop='/opt/local/bin/mysqladmin5 -u root -p shutdown'
+alias mysqlstart="sudo /opt/local/share/mysql5/mysql/mysql.server start"
+alias mysqlstop="/opt/local/bin/mysqladmin5 -u root -p shutdown"
+alias mysqladmin="/opt/local/bin/mysqladmin5"
+
+# to start all services when rebooted (launchd causes problems)
+alias startservices="sudo /opt/local/apache2/bin/apachectl start && sudo /opt/local/share/mysql5/mysql/mysql.server start && sudo postfix start"
 
 # svn
 alias up="svn update"
@@ -36,7 +40,7 @@ alias gsd="git svn dcommit"
 alias gsf="git svn fetch"
 
 # git
-alias glog="git log -n 10 --format=oneline"
+alias glog="git log --oneline --all --graph --decorate -n 20"
 alias gco="git checkout"
 alias gb="git branch"
 
@@ -44,24 +48,19 @@ alias gb="git branch"
 alias migrate="rake db:migrate"
 
 # cucumber
-alias cuke="cucumber features -f pretty"
+alias cuke="cucumber -f pretty"
 
 # symfony
-alias s='php symfony'
-alias scc='php symfony cache:clear'
-alias dba='php symfony doctrine:build --all --no-confirmation'
-alias dbar='php symfony doctrine:build-all-reload --no-confirmation'
-alias dbal='php symfony doctrine:build --all --and-load=data/fixtures/ --no-confirmation'
-alias dbat='php symfony doctrine:build --all --env=test --and-load=test/fixtures/ --no-confirmation'
-alias dbuild='php symfony doctrine:build-model && php symfony doctrine:build-form && php symfony doctrine:build-filter && php symfony doctrine:build-sql'
-alias dbac='php symfony doctrine:build --all-classes'
-alias fix='php symfony doctrine:data-load data/fixtures/'
-alias tfix='php symfony doctrine:data-load test/fixtures/ --env=test'
-
-# drush/drupal
-alias drush="/usr/local/lib/drush/drush"
-alias dl_modules="/usr/local/lib/drush/drush dl cck link date filefield imagefield imagecache imageapi admin_menu webform views pathauto token menu_breadcrumb extlink automenu menu_block advanced_help tagadelic google_analytics zen zenophile search404"
-alias enable_modules="/usr/local/lib/drush/drush enable admin_menu content content_copy fieldgroup filefield imagefield link nodereference number optionwidgets text zenophile imageapi imageapi_gd imagecache imagecache_ui advanced_help automenu menu_block menu_breadcrumb pathauto search404 token extlink views views_export views_ui"
+alias s="php symfony"
+alias scc="php symfony cache:clear"
+alias dba="php symfony doctrine:build --all --no-confirmation"
+alias dbar="php symfony doctrine:build-all-reload --no-confirmation"
+alias dbal="php symfony doctrine:build --all --and-load=data/fixtures/ --no-confirmation"
+alias dbat="php symfony doctrine:build --all --env=test --and-load=test/fixtures/ --no-confirmation"
+alias dbuild="php symfony doctrine:build-model && php symfony doctrine:build-form && php symfony doctrine:build-filter && php symfony doctrine:build-sql"
+alias dbac="php symfony doctrine:build --all-classes"
+alias fix="php symfony doctrine:data-load data/fixtures/"
+alias tfix="php symfony doctrine:data-load test/fixtures/ --env=test"
 
 # s3
 alias s3="/usr/lib/s3sync/s3cmd.rb"
@@ -103,8 +102,8 @@ function gg() {
     git commit -a -m "$*"
 }
 
-# switch to symfony dir
-function sf() {
+# switch to centresource projects dir
+function cs() {
   cd ~/sfprojects/$1/
 }
 
@@ -125,13 +124,7 @@ function routes() {
 
 # run an 'ls' on a svn dir
 function sls() {
-	svn ls http://svn.centresource.com/$1/$2
-}
-
-# Gets arguments for supplied php function
-function phpargs() {
-  curl -s http://us3.php.net/$1 | sed -n '/<div class="methodsynopsis dc-description">/,/<\/div>/p' | sed 's/<[^>]*>//g' | tr -d "\n"
-  echo
+  svn ls http://svn.centresource.com/$1/$2
 }
 
 function logdebug() {
