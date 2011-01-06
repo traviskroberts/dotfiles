@@ -1,6 +1,6 @@
 # colorize
 export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad
+export LSCOLORS=ExFxCxDxCxegedabagacAh
 
 # set default editor to vi
 export SVN_EDITOR=vim
@@ -48,4 +48,4 @@ BMAGENTA='\e[45m'
 BCYAN='\e[46m'
 BWHITE='\e[47m'
 
-PS1="\n\[$GREEN\]\u\[$NO_COLOR\]@\[$GREEN\]\h\[$NO_COLOR\]:\w \[$EYELLOW\]\$(vcprompt)\[$NO_COLOR\] \n→ "
+PS1="\n\[$GREEN\]\u\[$NO_COLOR\]@\[$GREEN\]\h \[$YELLOW\][\$(~/.rvm/bin/rvm-prompt i v)]\[$NO_COLOR\]:\w \[$EYELLOW\]\$(vcprompt)\[$NO_COLOR\] \n→ "
