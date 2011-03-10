@@ -1,30 +1,54 @@
 # Make gems available
 require 'rubygems'
 
-# http://drnicutilities.rubyforge.org/map_by_method/
-require 'map_by_method'
+begin
+  # http://drnicutilities.rubyforge.org/map_by_method/
+  require 'map_by_method'
+  
+  # Dr Nic's gem inspired by
+  # http://redhanded.hobix.com/inspect/stickItInYourIrbrcMethodfinder.html
+  require 'what_methods'
+  
+  # Pretty Print method
+  require 'pp'
+  
+  # Awesome Print gem (gem install awesome_print)
+  require 'ap'
+  IRB::Irb.class_eval do
+    def output_value
+      ap @context.last_value
+    end
+  end
+  
+  # Print information about any HTTP requests being made
+  require 'net-http-spy'
+  
+  # Draw ASCII tables
+  require 'hirb'
+  require 'hirb/import_object'
+  Hirb.enable
+  extend Hirb::Console
+  
+  # 'lp' to show method lookup path
+  require 'looksee/shortcuts'
+  
+  # Tab Completion
+  require 'irb/completion'
+  # Save History between irb sessions
+  require 'irb/ext/save-history'
+  IRB.conf[:SAVE_HISTORY] = 100
+  IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
+  # Wirble is a set of enhancements for irb
+  # http://pablotron.org/software/wirble/README
+  # Implies require 'pp', 'irb/completion', and 'rubygems'
+  require 'wirble'
+  Wirble.init
 
-# Dr Nic's gem inspired by
-# http://redhanded.hobix.com/inspect/stickItInYourIrbrcMethodfinder.html
-require 'what_methods'
-
-# Pretty Print method
-require 'pp'
-
-# Awesome Print gem (gem install awesome_print)
-require 'ap'
-
-# Print information about any HTTP requests being made
-require 'net-http-spy'
-
-# Draw ASCII tables
-require 'hirb'
-require 'hirb/import_object'
-Hirb.enable
-extend Hirb::Console
-
-# 'lp' to show method lookup path
-require 'looksee/shortcuts'
+  # Enable colored output
+  Wirble.colorize
+rescue LoadError => e
+  puts "One of the gems was not found."
+end
 
 # Load the readline module.
 IRB.conf[:USE_READLINE] = true
@@ -32,25 +56,8 @@ IRB.conf[:USE_READLINE] = true
 # Remove the annoying irb(main):001:0 and replace with >>
 IRB.conf[:PROMPT_MODE]  = :SIMPLE
 
-# Tab Completion
-require 'irb/completion'
-
 # Automatic Indentation
 IRB.conf[:AUTO_INDENT]=true
-
-# Save History between irb sessions
-require 'irb/ext/save-history'
-IRB.conf[:SAVE_HISTORY] = 100
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
-
-# Wirble is a set of enhancements for irb
-# http://pablotron.org/software/wirble/README
-# Implies require 'pp', 'irb/completion', and 'rubygems'
-require 'wirble'
-Wirble.init
-
-# Enable colored output
-Wirble.colorize
 
 # Clear the screen
 def clear

@@ -35,18 +35,22 @@ alias externals="svn propedit svn:externals"
 alias ignore="svn propedit svn:ignore"
 
 # git-svn
-alias gs="git svn"
-alias gsr="git svn rebase"
-alias gsd="git svn dcommit"
-alias gsf="git svn fetch"
+alias gs="git-achievements svn"
+alias gsr="git-achievements svn rebase"
+alias gsd="git-achievements svn dcommit"
+alias gsf="git-achievements svn fetch"
 
 # git
-alias glog="git log --oneline --all --graph --decorate -n 20"
-alias gco="git checkout"
-alias gb="git branch"
+alias git="git-achievements"
+alias glog="git-achievements log --oneline --all --graph --decorate -n 20"
+alias gco="git-achievements checkout"
+alias gb="git-achievements branch"
 
 # rails
 alias migrate="rake db:migrate"
+alias migrate_both="rake db:migrate RAILS_ENV=development && rake db:migrate RAILS_ENV=test"
+alias tests="rspec spec -c -f d --drb && cucumber -c -f pretty"
+alias dj="script/delayed_job"
 
 # cucumber
 alias cuke="cucumber -f pretty"
@@ -100,7 +104,7 @@ function scp_staging() {
 
 # Commit pending changes and quote all args as message
 function gg() { 
-    git commit -a -m "$*"
+    git-achievements commit -am "$*"
 }
 
 # switch to centresource projects dir

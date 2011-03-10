@@ -1,0 +1,26 @@
+# aliases
+alias ll="ls -lhF"
+alias lla="ls -lAhF"
+alias ..="cd .."
+
+# colorize
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxCxegedabagacAh
+
+# remove duplicate entries in bash history
+export HISTIGNORE="&:[bf]g:exit"
+
+# Colors from http://wiki.archlinux.org/index.php/Color_Bash_Prompt
+# misc
+NO_COLOR='\e[0m' #disable any colors
+# regular colors
+BLACK='\e[0;30m'
+RED='\e[0;31m'
+GREEN='\e[0;32m'
+YELLOW='\e[0;33m'
+BLUE='\e[0;34m'
+MAGENTA='\e[0;35m'
+CYAN='\e[0;36m'
+WHITE='\e[0;37m'
+
+PS1="\n\[$RED\]\u\[$NO_COLOR\]@\[$YELLOW\]\h\[$NO_COLOR\]:\w\n$ "
