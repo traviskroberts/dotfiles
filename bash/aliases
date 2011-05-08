@@ -47,8 +47,6 @@ alias gco="git-achievements checkout"
 alias gb="git-achievements branch"
 
 # rails
-alias migrate="rake db:migrate"
-alias migrate_both="rake db:migrate RAILS_ENV=development && rake db:migrate RAILS_ENV=test"
 alias tests="rspec spec -c -f d --drb && cucumber -c -f pretty"
 alias dj="script/delayed_job"
 
@@ -103,7 +101,7 @@ function scp_staging() {
 }
 
 # Commit pending changes and quote all args as message
-function gg() { 
+function gg() {
     git-achievements commit -am "$*"
 }
 
@@ -119,11 +117,40 @@ function ap() {
 
 # get a list of routes (symfony or rails)
 function routes() {
-  if [ -f symfony ];
-  then
-    php symfony app:routes $1
+  if [ -f symfony ]; then
+    # first argument is "application" (only for symfony)
+    export app=$1
+
+    # second argument is text to pipe to grep command.
+    export grep_text=$2
+
+    if [ ! -n "$app" ]; then
+      export app="frontend" # default argument
+    fi
+
+    if [ ! -n "$grep_text" ]; then
+      php symfony app:routes $app
+    else
+      php symfony app:routes $app | grep $grep_text
+    fi
   else
-    rake routes
+    # first argument is text to pipe to grep command.
+    export grep_text=$1
+
+    if [ ! -n "$grep_text" ]; then
+      rake routes
+    else
+      rake routes | grep $grep_text
+    fi
+  fi
+}
+
+# run migrations (rails or symfony)
+function migrate() {
+  if [ -f symfony ]; then
+    php symfony doctrine:migrate
+  else
+    rake db:migrate
   fi
 }
 
