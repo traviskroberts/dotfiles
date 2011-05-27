@@ -7,7 +7,7 @@ alias lla="ls -lAhF"
 alias ..="cd .."
 alias df="source ~/.bash_profile"
 alias mdf="mate ~/bin/dotfiles"
-alias apache="sudo /opt/local/apache2/bin/apachectl"
+alias apache="sudo /usr/sbin/apachectl"
 alias dir_size="du -sh"
 alias flush_cache="dscacheutil -flushcache"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
@@ -18,7 +18,7 @@ alias mysqlstop="/opt/local/bin/mysqladmin5 -u root -p shutdown"
 alias mysqladmin="/opt/local/bin/mysqladmin5"
 
 # to start all services when rebooted (launchd causes problems)
-alias startservices="sudo /opt/local/apache2/bin/apachectl start && sudo /opt/local/share/mysql5/mysql/mysql.server start && sudo postfix start"
+alias startservices="sudo /usr/sbin/apachectl start && sudo postfix start"
 
 # svn
 alias up="svn update"
@@ -49,6 +49,7 @@ alias gb="git-achievements branch"
 # rails
 alias tests="rspec spec -c -f d --drb && cucumber -c -f pretty"
 alias dj="script/delayed_job"
+alias migrate_both="rake db:migrate && rake db:migrate RAILS_ENV=test"
 
 # cucumber
 alias cuke="cucumber -f pretty"
