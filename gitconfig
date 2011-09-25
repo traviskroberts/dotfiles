@@ -1,0 +1,32 @@
+[user]
+  name = Travis Roberts
+  email = traviskroberts@gmail.com
+[alias]
+  ci = commit
+  st = status
+  co = checkout
+  br = branch
+  pushm = push origin master
+  pullm = pull origin master
+  pushd = push origin develop
+  pulld = pull origin develop
+  mg = merge --no-ff --log
+[github]
+  user = travisr
+  token = e220b725103e07ced8002d1787ec6bf6
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = always
+[mergetool]
+  keepBackup = false
+[core]
+  editor = mate -w
+[gui]
+  recentrepo = /Library/WebServer/urc-prayer
+[achievement]
+  upload = false
+[push]
+  # Push current branch even if you've never pushed it before
+  default = current

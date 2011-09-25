@@ -8,9 +8,6 @@ export SVN_EDITOR=vim
 # remove duplicate entries in bash history
 export HISTIGNORE="&:[bf]g:exit"
 
-# to fix mysql library issues
-export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"
-
 # Colors from http://wiki.archlinux.org/index.php/Color_Bash_Prompt
 # misc
 NO_COLOR='\e[0m' #disable any colors
@@ -24,4 +21,4 @@ MAGENTA='\e[0;35m'
 CYAN='\e[0;36m'
 WHITE='\e[0;37m'
 
-PS1="\n\[$GREEN\]\u\[$NO_COLOR\]@\[$GREEN\]\h \[$YELLOW\][\$(~/.rvm/bin/rvm-prompt i v)]\[$NO_COLOR\]:\w \[$CYAN\]\$(vcprompt)\[$NO_COLOR\] \n→ "
+PS1="\n\[$GREEN\]\u\[$NO_COLOR\]@\[$GREEN\]\h \[$YELLOW\][\$(~/.rvm/bin/rvm-prompt i v g)]\[$NO_COLOR\]:\w \[$CYAN\]\$(vcprompt)\[$NO_COLOR\] \n→ "

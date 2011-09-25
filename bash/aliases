@@ -11,14 +11,9 @@ alias apache="sudo /usr/sbin/apachectl"
 alias dir_size="du -sh"
 alias flush_cache="dscacheutil -flushcache"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
-
-# mysql
-alias mysqlstart="sudo /opt/local/share/mysql5/mysql/mysql.server start"
-alias mysqlstop="/opt/local/bin/mysqladmin5 -u root -p shutdown"
-alias mysqladmin="/opt/local/bin/mysqladmin5"
-
-# to start all services when rebooted (launchd causes problems)
-alias startservices="sudo /usr/sbin/apachectl start && sudo postfix start"
+alias redis="redis-server /usr/local/etc/redis.conf"
+alias fixmysql="sudo install_name_tool -change libmysqlclient.18.dylib /usr/local/mysql/lib/libmysqlclient.18.dylib"
+alias install_nokogiri="gem install nokogiri -- --with-xml2-lib=/usr/local/lib --with-xml2-include=/usr/local/include/libxml2 --with-xslt-lib=/usr/local/lib --with-xslt-include=/usr/local/include"
 
 # svn
 alias up="svn update"
@@ -57,14 +52,7 @@ alias cuke="cucumber -f pretty"
 # symfony
 alias s="php symfony"
 alias scc="php symfony cache:clear"
-alias dba="php symfony doctrine:build --all --no-confirmation"
-alias dbar="php symfony doctrine:build-all-reload --no-confirmation"
-alias dbal="php symfony doctrine:build --all --and-load=data/fixtures/ --no-confirmation"
-alias dbat="php symfony doctrine:build --all --env=test --and-load=test/fixtures/ --no-confirmation"
 alias dbuild="php symfony doctrine:build-model && php symfony doctrine:build-form && php symfony doctrine:build-filter && php symfony doctrine:build-sql"
-alias dbac="php symfony doctrine:build --all-classes"
-alias fix="php symfony doctrine:data-load data/fixtures/"
-alias tfix="php symfony doctrine:data-load test/fixtures/ --env=test"
 
 # s3
 alias s3="/usr/lib/s3sync/s3cmd.rb"
@@ -72,7 +60,7 @@ alias s3="/usr/lib/s3sync/s3cmd.rb"
 # rails server (2.x and 3.x)
 function ss {
   if [ -e script/rails ]; then
-    script/rails server $@
+    rails server $@
   else
     script/server $@
   fi
@@ -81,7 +69,7 @@ function ss {
 # rails console (2.x and 3.x)
 function sc {
   if [ -e script/rails ]; then
-    script/rails console $@
+    rails console $@
   else
     script/console $@
   fi
@@ -90,7 +78,7 @@ function sc {
 # rails generate (2.x and 3.x)
 function sg {
   if [ -e script/rails ]; then
-    script/rails generate $@
+    rails generate $@
   else
     script/generate $@
   fi
@@ -103,17 +91,7 @@ function scp_staging() {
 
 # Commit pending changes and quote all args as message
 function gg() {
-    git-achievements commit -am "$*"
-}
-
-# switch to centresource projects dir
-function cs() {
-  cd ~/sfprojects/$1/
-}
-
-# switch to apacheprojects dir
-function ap() {
-  cd ~/apacheprojects/$1/
+  git-achievements commit -am "$*"
 }
 
 # get a list of routes (symfony or rails)
@@ -160,7 +138,7 @@ function sls() {
   svn ls http://svn.centresource.com/$1/$2
 }
 
-function logdebug() {
+function loggrep() {
   # The first argument is the application (default: frontend)
   export app=$1
 
@@ -175,11 +153,11 @@ function logdebug() {
     export env="dev"
   fi
 
-  # The third argument is the grep command.  (default: debug)
+  # The third argument is the grep command.  (default: notice)
   export grep=$3
 
   if [ ! -n "$grep" ]; then
-    export grep="debug"
+    export grep="notice"
   fi
 
   export u="_"

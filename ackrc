@@ -1,3 +1,4 @@
 --type-add=php=.module
+--type-add=php=.inc
 --type-add=ruby=.feature
 --nosql
