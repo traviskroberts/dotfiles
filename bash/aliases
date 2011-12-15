@@ -45,6 +45,7 @@ alias gb="git-achievements branch"
 alias tests="rspec spec -c -f d --drb && cucumber -c -f pretty"
 alias dj="script/delayed_job"
 alias migrate_both="rake db:migrate && rake db:migrate RAILS_ENV=test"
+alias bundle_migrate="bundle exec rake db:migrate && bundle exec rake db:migrate RAILS_ENV=test"
 
 # cucumber
 alias cuke="cucumber -f pretty"
