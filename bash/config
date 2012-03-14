@@ -21,4 +21,4 @@ MAGENTA='\e[0;35m'
 CYAN='\e[0;36m'
 WHITE='\e[0;37m'
 
-PS1="\n\[$GREEN\]\u\[$NO_COLOR\]@\[$GREEN\]\h \[$YELLOW\][\$(~/.rvm/bin/rvm-prompt i v g)]\[$NO_COLOR\]:\w \[$CYAN\]\$(vcprompt)\[$NO_COLOR\] \n→ "
+PS1="\n\[$GREEN\]\u\[$NO_COLOR\]@\[$GREEN\]\h \[$YELLOW\][\$(~/.rvm/bin/rvm-prompt i v g)]\[$NO_COLOR\]:\w \[$RED\]\$(vcprompt)\[$NO_COLOR\] \n→ "
