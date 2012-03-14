@@ -23,4 +23,4 @@ MAGENTA='\e[0;35m'
 CYAN='\e[0;36m'
 WHITE='\e[0;37m'
 
-PS1="\n\[$RED\]\u\[$NO_COLOR\]@\[$YELLOW\]\h\[$NO_COLOR\]:\w\n$ "
+PS1="\n\[$CYAN\]\u\[$NO_COLOR\]@\[$YELLOW\]\h\[$NO_COLOR\]:\w\n$ "
