@@ -5,3 +5,8 @@ caption always '%{= kG}[ %{G}%H %{g}][%= %{=kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%
 altscreen on
 vbell off
 termcapinfo xterm ti@:te@
+
+screen -t console 1
+screen -t spork 2
+screen -t bash 3
+select 1
