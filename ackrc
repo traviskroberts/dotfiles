@@ -1,6 +1,8 @@
 --type-add=php=.module
 --type-add=php=.inc
 --type-add=ruby=.feature
+--type-add=ruby=.haml
 --type-add=css=.scss
 --type-add=css=.less
+--type-add=js=.coffee
 --nosql
