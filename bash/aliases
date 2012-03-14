@@ -21,7 +21,6 @@ alias st="svn status --quiet --ignore-externals"
 alias sta="svn status --ignore-externals"
 alias ci="svn commit -m"
 alias add="svn add"
-alias ignore="svn propedit svn:ignore"
 alias add_all="svn st | grep '^\?' | awk '{print \$2}' | xargs svn add"
 alias rm_all="svn st | grep '^\!' | awk '{print \$2}' | xargs svn rm"
 alias reset="svn st | grep '^\?' | awk '{print \$2}' | xargs rm -rf"
@@ -83,6 +82,11 @@ function sg {
   else
     script/generate $@
   fi
+}
+
+# rails bundle exec
+function be {
+  bundle exec $@
 }
 
 # scp given path from staging server
