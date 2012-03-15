@@ -5,4 +5,5 @@
 --type-add=css=.scss
 --type-add=css=.less
 --type-add=js=.coffee
+--type-add=js=.hbs
 --nosql
