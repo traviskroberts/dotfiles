@@ -28,26 +28,12 @@ alias svn_delete="find . -type d -name .svn | xargs rm -rf"
 alias externals="svn propedit svn:externals"
 alias ignore="svn propedit svn:ignore"
 
-# git-svn
-alias gs="git-achievements svn"
-alias gsr="git-achievements svn rebase"
-alias gsd="git-achievements svn dcommit"
-alias gsf="git-achievements svn fetch"
-
 # git
-alias git="git-achievements"
-alias glog="git-achievements log --oneline --all --graph --decorate -n 20"
-alias gco="git-achievements checkout"
-alias gb="git-achievements branch"
+alias glog="git log --oneline --all --graph --decorate -n 20"
 
 # rails
-alias tests="rspec spec -c -f d --drb && cucumber -c -f pretty"
-alias dj="script/delayed_job"
 alias migrate_both="rake db:migrate && rake db:migrate RAILS_ENV=test"
 alias bundle_migrate="bundle exec rake db:migrate && bundle exec rake db:migrate RAILS_ENV=test"
-
-# cucumber
-alias cuke="cucumber -f pretty"
 
 # symfony
 alias s="php symfony"
@@ -96,7 +82,7 @@ function scp_staging() {
 
 # Commit pending changes and quote all args as message
 function gg() {
-  git-achievements commit -am "$*"
+  git commit -am "$*"
 }
 
 # get a list of routes (symfony or rails)
