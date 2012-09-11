@@ -1,6 +1,4 @@
 export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:~/bin:~/src/git-achievements:/usr/local/Cellar/php/5.3.6/bin:$PATH"
-
-export NODE_PATH="/usr/local/lib/node"
-export NODE_ENV="production"
+# export NODE_PATH="/usr/local/lib/node"
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm

@@ -3,7 +3,7 @@
   email = traviskroberts@gmail.com
 [alias]
   ci = commit
-  st = status
+  st = status -sb
   co = checkout
   br = branch
   pushm = push origin master
@@ -13,7 +13,6 @@
   mg = merge --no-ff --log
 [github]
   user = travisr
-  token = e220b725103e07ced8002d1787ec6bf6
 [color]
   diff = auto
   status = auto
