@@ -98,7 +98,7 @@ map <Leader>su :RSunittest
 map <Leader>sf :RSfunctionaltest
 
 " Fuzzy Finder
-map <leader>t :FuzzyFinderTextMate<CR>
+" map <leader>t :FuzzyFinderTextMate<CR>
 
 " Hide search highlighting
 map <Leader>h :set invhls <CR>

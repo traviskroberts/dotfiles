@@ -1,0 +1,60 @@
+# all-purpose aliases
+alias h="cd ~"
+alias c="clear"
+alias hc="cd ~ && clear"
+alias ll="ls -lhF"
+alias lla="ls -lAhF"
+alias ..="cd .."
+alias ...="cd ../.."
+alias apache="sudo /usr/sbin/apachectl"
+alias dir_size="du -sh"
+alias flush_cache="dscacheutil -flushcache"
+alias updatedb="sudo /usr/libexec/locate.updatedb"
+alias redis="redis-server /usr/local/etc/redis.conf"
+alias fixmysql="sudo install_name_tool -change libmysqlclient.18.dylib /usr/local/mysql/lib/libmysqlclient.18.dylib"
+alias install_nokogiri="gem install nokogiri -- --with-xml2-lib=/usr/local/lib --with-xml2-include=/usr/local/include/libxml2 --with-xslt-lib=/usr/local/lib --with-xslt-include=/usr/local/include"
+alias spotlight_off="sudo mdutil -a -i off"
+alias spotlight_on="sudo mdutil -a -i on"
+
+# git
+alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+
+# rails
+alias migrate_both="rake db:migrate && rake db:migrate RAILS_ENV=test"
+alias bundle_migrate="bundle exec rake db:migrate && bundle exec rake db:migrate RAILS_ENV=test"
+alias coverage_report="SIMPLECOV=1 rspec spec/ --no-drb"
+
+# s3
+alias s3="/usr/lib/s3sync/s3cmd.rb"
+
+# rails server (2.x and 3.x)
+function ss {
+  if [ -e script/rails ]; then
+    rails server $@
+  else
+    script/server $@
+  fi
+}
+
+# rails console (2.x and 3.x)
+function sc {
+  if [ -e script/rails ]; then
+    rails console $@
+  else
+    script/console $@
+  fi
+}
+
+# rails generate (2.x and 3.x)
+function sg {
+  if [ -e script/rails ]; then
+    rails generate $@
+  else
+    script/generate $@
+  fi
+}
+
+# rails bundle exec
+function be {
+  bundle exec $@
+}
