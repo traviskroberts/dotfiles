@@ -17,15 +17,15 @@
   diff = auto
   status = auto
   branch = auto
-  ui = always
+  ui = auto
 [mergetool]
   keepBackup = false
 [core]
   editor = mate -w
 [gui]
   recentrepo = /Library/WebServer/urc-prayer
-[achievement]
-  upload = false
 [push]
   # Push current branch even if you've never pushed it before
   default = current
+[apply]
+	whitespace = nowarn

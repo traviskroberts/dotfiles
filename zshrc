@@ -40,3 +40,5 @@ source $HOME/bin/dotfiles/git_completion
 export PATH=/Users/travis/.rvm/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:~/bin:/usr/local/Cellar/php/5.3.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
