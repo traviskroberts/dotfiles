@@ -37,8 +37,9 @@ source $HOME/bin/dotfiles/aliases
 source $HOME/bin/dotfiles/git_completion
 
 # Customize to your needs...
-export PATH=/Users/travis/.rvm/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:~/bin:/usr/local/Cellar/php/5.3.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
+export PATH=$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
+
+# THIS IS ONLY HERE FOR ONLIFE!!!!!
+export HEADLESS=false
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
