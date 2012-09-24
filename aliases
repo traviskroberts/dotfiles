@@ -20,9 +20,10 @@ alias spotlight_on="sudo mdutil -a -i on"
 alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 
 # rails
-alias migrate_both="rake db:migrate && rake db:migrate RAILS_ENV=test"
-alias bundle_migrate="bundle exec rake db:migrate && bundle exec rake db:migrate RAILS_ENV=test"
+alias migrate="rake db:migrate && rake db:test:prepare"
+alias bundle_migrate="bundle exec rake db:migrate && bundle exec db:test:prepare"
 alias coverage_report="SIMPLECOV=1 rspec spec/ --no-drb"
+alias specs="HEADLESS=false rspec spec/ -f Fuubar -t focus"
 
 # s3
 alias s3="/usr/lib/s3sync/s3cmd.rb"

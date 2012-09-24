@@ -1,6 +1,8 @@
 [user]
   name = Travis Roberts
   email = traviskroberts@gmail.com
+[credential]
+  helper = osxkeychain
 [alias]
   ci = commit
   st = status -sb
