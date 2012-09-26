@@ -34,7 +34,6 @@ plugins=()
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/bin/dotfiles/aliases
-source $HOME/bin/dotfiles/git_completion
 
 # Customize to your needs...
 export PATH=$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
