@@ -23,7 +23,7 @@ alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset
 alias migrate="rake db:migrate && rake db:test:prepare"
 alias bundle_migrate="bundle exec rake db:migrate && bundle exec db:test:prepare"
 alias coverage_report="SIMPLECOV=1 rspec spec/ --no-drb"
-alias specs="HEADLESS=false rspec spec/ -f Fuubar -t focus"
+alias olspecs="rspec spec/ && rake jasmine:ci"
 alias labrador="cd ~/Sites/rails/labrador && bundle exec rails s -e production -p 7488"
 
 # s3
