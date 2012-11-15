@@ -26,6 +26,7 @@ alias coverage_report="SIMPLECOV=1 rspec spec/ --no-drb"
 alias olspecs="rspec spec/ && rake jasmine:ci"
 alias labrador="cd ~/Sites/rails/labrador && bundle exec rails s -e production -p 7488"
 alias z="zeus"
+alias gr="rake routes | grep"
 
 # s3
 alias s3="/usr/lib/s3sync/s3cmd.rb"
