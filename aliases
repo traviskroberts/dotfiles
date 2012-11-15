@@ -25,6 +25,7 @@ alias bundle_migrate="bundle exec rake db:migrate && bundle exec db:test:prepare
 alias coverage_report="SIMPLECOV=1 rspec spec/ --no-drb"
 alias olspecs="rspec spec/ && rake jasmine:ci"
 alias labrador="cd ~/Sites/rails/labrador && bundle exec rails s -e production -p 7488"
+alias z="zeus"
 
 # s3
 alias s3="/usr/lib/s3sync/s3cmd.rb"
