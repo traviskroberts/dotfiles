@@ -16,9 +16,6 @@ alias install_nokogiri="gem install nokogiri -- --with-xml2-lib=/usr/local/lib -
 alias spotlight_off="sudo mdutil -a -i off"
 alias spotlight_on="sudo mdutil -a -i on"
 
-# git
-alias glog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-
 # rails
 alias migrate="rake db:migrate && rake db:test:prepare"
 alias bundle_migrate="bundle exec rake db:migrate && bundle exec db:test:prepare"
