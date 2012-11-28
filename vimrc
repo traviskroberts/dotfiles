@@ -39,6 +39,9 @@ if has("autocmd")
   augroup vimrcEx
   au!
 
+  " Trim trailing whitespace
+  autocmd BufWritePre * :%s/\s\+$//e
+
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
 
