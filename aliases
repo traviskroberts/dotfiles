@@ -62,3 +62,9 @@ function sg {
 function be {
   bundle exec $@
 }
+
+# get full history diff of a file in git
+# NOT CURRENTLY WORKING
+function diffgit {
+  git --no-pager log -p $0 > ~/Desktop/history.diff
+}
