@@ -28,6 +28,9 @@ alias gr="rake routes | grep"
 # s3
 alias s3="/usr/lib/s3sync/s3cmd.rb"
 
+# heroku
+alias hl="heroku logs -n 1000 > ~/Desktop/heroku_$(date +%Y_%m_%d_%H_%M_%S).txt && mate ~/Desktop/heroku_$(date +%Y_%m_%d_%H_%M_%S).txt"
+
 # rails server (2.x and 3.x)
 function ss {
   if [ -e script/rails ]; then
