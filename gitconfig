@@ -33,3 +33,5 @@
   default = current
 [apply]
 	whitespace = nowarn
+[rerere]
+	enabled = true
