@@ -38,8 +38,8 @@ source $HOME/bin/dotfiles/aliases
 # make Sublime the default editor
 export EDITOR="$HOME/bin/subl -n"
 
-# THIS IS ONLY HERE FOR ONLIFE!!!!!
-export HEADLESS=false
+# Customize to your needs...
+export PATH=$PATH:$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
 
 # RUBY PERFORMANCE TWEAKS
 export RUBY_HEAP_MIN_SLOTS=1000000
