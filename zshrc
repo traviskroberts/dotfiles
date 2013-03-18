@@ -35,8 +35,8 @@ plugins=()
 source $ZSH/oh-my-zsh.sh
 source $HOME/bin/dotfiles/aliases
 
-# Customize to your needs...
-export PATH=$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
+# make Sublime the default editor
+export EDITOR="$HOME/bin/subl -n"
 
 # THIS IS ONLY HERE FOR ONLIFE!!!!!
 export HEADLESS=false
