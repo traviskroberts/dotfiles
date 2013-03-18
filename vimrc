@@ -2,6 +2,9 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" map jj to esc
+inoremap jj <Esc>
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
