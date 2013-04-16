@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+export LSCOLORS="exfxcxdxbxegedabagacad"
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -37,6 +39,7 @@ source $HOME/bin/dotfiles/aliases
 
 # make Sublime the default editor
 export EDITOR="$HOME/bin/subl -n"
+export PSQL_EDITOR="$HOME/bin/subl"
 
 # Customize to your needs...
 export PATH=$PATH:$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
