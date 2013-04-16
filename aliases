@@ -10,11 +10,7 @@ alias apache="sudo /usr/sbin/apachectl"
 alias dir_size="du -sh"
 alias flush_cache="dscacheutil -flushcache"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
-alias redis="redis-server /usr/local/etc/redis.conf"
-alias fixmysql="sudo install_name_tool -change libmysqlclient.18.dylib /usr/local/mysql/lib/libmysqlclient.18.dylib"
-alias install_nokogiri="gem install nokogiri -- --with-xml2-lib=/usr/local/lib --with-xml2-include=/usr/local/include/libxml2 --with-xslt-lib=/usr/local/lib --with-xslt-include=/usr/local/include"
-alias spotlight_off="sudo mdutil -a -i off"
-alias spotlight_on="sudo mdutil -a -i on"
+alias kat="pygmentize -f terminal -g"
 
 # rails
 alias migrate="rake db:migrate && rake db:test:prepare"
