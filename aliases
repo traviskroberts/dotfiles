@@ -13,12 +13,10 @@ alias updatedb="sudo /usr/libexec/locate.updatedb"
 alias kat="pygmentize -f terminal -g"
 
 # rails
+alias rs="bundle exec rails server"
+alias rc="bundle exec rails console"
+alias rg="bundle exec rails generate"
 alias migrate="rake db:migrate && rake db:test:prepare"
-alias bundle_migrate="bundle exec rake db:migrate && bundle exec db:test:prepare"
-alias coverage_report="SIMPLECOV=1 rspec spec/ --no-drb"
-alias olspecs="rspec spec/ && rake jasmine:ci"
-alias labrador="cd ~/Sites/rails/labrador && bundle exec rails s -e production -p 7488"
-alias z="zeus"
 alias gr="rake routes | grep"
 
 # s3
@@ -26,33 +24,6 @@ alias s3="/usr/lib/s3sync/s3cmd.rb"
 
 # heroku
 alias hl="heroku logs -n 1000 > ~/Desktop/heroku_$(date +%Y_%m_%d_%H_%M_%S).txt && mate ~/Desktop/heroku_$(date +%Y_%m_%d_%H_%M_%S).txt"
-
-# rails server (2.x and 3.x)
-function ss {
-  if [ -e script/rails ]; then
-    rails server $@
-  else
-    script/server $@
-  fi
-}
-
-# rails console (2.x and 3.x)
-function sc {
-  if [ -e script/rails ]; then
-    rails console $@
-  else
-    script/console $@
-  fi
-}
-
-# rails generate (2.x and 3.x)
-function sg {
-  if [ -e script/rails ]; then
-    rails generate $@
-  else
-    script/generate $@
-  fi
-}
 
 # rails bundle exec
 function be {
