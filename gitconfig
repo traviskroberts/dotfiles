@@ -12,6 +12,8 @@
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   pushm = push origin master
   pullm = pull origin master
+  pushs = push origin staging
+  pulls = pull origin staging
   pushd = push origin develop
   pulld = pull origin develop
   mg = merge --no-ff --log
