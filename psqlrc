@@ -1,0 +1,9 @@
+\x auto
+\timing
+\pset border 2
+
+\set clear '\\! clear;'
+\echo '\nCommands:'
+\echo ':clear - Clears the screen\n'
+
+\set PROMPT1 '\n%n@%m:%/\n%# '
