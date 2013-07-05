@@ -11,6 +11,7 @@ alias dir_size="du -sh"
 alias flush_cache="dscacheutil -flushcache"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 alias kat="pygmentize -f terminal -g"
+alias mate="echo 'Did you mean subl perhaps?'"
 
 # rails
 alias rs="bundle exec rails server"
