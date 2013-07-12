@@ -27,7 +27,7 @@
 [mergetool]
   keepBackup = false
 [core]
-  editor = mate -w
+  editor = subl -n -w
 [gui]
   recentrepo = /Library/WebServer/urc-prayer
 [push]
