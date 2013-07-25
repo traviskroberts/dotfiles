@@ -4,5 +4,5 @@ Pry.config.color = true
 # disable pager for long output
 Pry.config.pager = false
 
-# set editor to textmate
-Pry.config.editor = "mate"
+# set editor to ST2
+Pry.config.editor = "subl"

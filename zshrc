@@ -10,8 +10,8 @@ export LSCOLORS="exfxcxdxbxegedabagacad"
 ZSH_THEME="travis"
 
 # Example aliases
-alias zshconfig="mate ~/.zshrc"
-alias ohmyzsh="mate ~/.oh-my-zsh"
+alias zshconfig="subl ~/.zshrc"
+alias ohmyzsh="subl ~/.oh-my-zsh"
 alias df="source $HOME/.zshrc"
 
 # Set to this to use case-sensitive completion
