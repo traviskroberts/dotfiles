@@ -14,10 +14,7 @@ alias kat="pygmentize -f terminal -g"
 alias mate="echo 'Did you mean subl perhaps?'"
 
 # rails
-alias rs="bundle exec rails server"
-alias rc="bundle exec rails console"
-alias rg="bundle exec rails generate"
-alias migrate="rake db:migrate && rake db:test:prepare"
+alias migrate="rake db:migrate && rake db:test:clone"
 alias gr="rake routes | grep"
 
 # s3
@@ -25,6 +22,33 @@ alias s3="/usr/lib/s3sync/s3cmd.rb"
 
 # heroku
 alias hl="heroku logs -n 1000 > ~/Desktop/heroku_$(date +%Y_%m_%d_%H_%M_%S).txt && subl ~/Desktop/heroku_$(date +%Y_%m_%d_%H_%M_%S).txt"
+
+# rails server (2.x and 3.x)
+function rs {
+  if [ -e script/rails ]; then
+    bundle exec rails server $@
+  else
+    script/server $@
+  fi
+}
+
+# rails console (2.x and 3.x)
+function rc {
+  if [ -e script/rails ]; then
+    bundle exec rails console $@
+  else
+    script/console $@
+  fi
+}
+
+# rails generate (2.x and 3.x)
+function rg {
+  if [ -e script/rails ]; then
+    bundle exec rails generate $@
+  else
+    script/generate $@
+  fi
+}
 
 # rails bundle exec
 function be {
