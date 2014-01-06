@@ -44,11 +44,6 @@ export PSQL_EDITOR="$HOME/bin/subl"
 # Customize to your needs...
 export PATH=$PATH:$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
 
-# RUBY PERFORMANCE TWEAKS
-export RUBY_HEAP_MIN_SLOTS=2000000
-export RUBY_HEAP_FREE_MIN=20000
-export RUBY_GC_MALLOC_LIMIT=100000000
-
 # Android SDK
 export ANDROID_HOME=/usr/local/opt/android-sdk
 
