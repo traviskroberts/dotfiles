@@ -22,8 +22,6 @@ alias s3="/usr/lib/s3sync/s3cmd.rb"
 
 # heroku
 alias hl="heroku logs -n 1000 > ~/Desktop/heroku_$(date +%Y_%m_%d_%H_%M_%S).txt && subl ~/Desktop/heroku_$(date +%Y_%m_%d_%H_%M_%S).txt"
-alias hkds="git push heroku-staging staging:master"
-alias hkd="git push heroku master"
 
 # rails server (2.x and 3.x)
 function rs {
