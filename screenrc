@@ -6,7 +6,7 @@ altscreen on
 vbell off
 termcapinfo xterm ti@:te@
 
-screen -t console 1
-screen -t spork 2
-screen -t bash 3
+screen -t guard 1
+screen -t solr 2
+screen -t console 3
 select 1
