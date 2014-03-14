@@ -17,6 +17,7 @@
   pushd = push origin develop
   pulld = pull origin develop
   mg = merge --no-ff --log
+	fu = fetch upstream -v
 [github]
   user = travisr
 [color]
@@ -39,3 +40,8 @@
 	enabled = true
 [diff]
 	algorithm = patience
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[merge]
+	tool = opendiff
