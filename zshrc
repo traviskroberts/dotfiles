@@ -34,17 +34,15 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=()
 
+# Customize to your needs...
+export PATH=$PATH:$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
+
 source $ZSH/oh-my-zsh.sh
 source $HOME/bin/dotfiles/aliases
+source $(brew --prefix nvm)/nvm.sh
 
 # make Sublime the default editor
 export EDITOR="$HOME/bin/subl -n"
 export PSQL_EDITOR="$HOME/bin/subl"
-
-# Customize to your needs...
-export PATH=$PATH:$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
-
-# Android SDK
-export ANDROID_HOME=/usr/local/opt/android-sdk
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
