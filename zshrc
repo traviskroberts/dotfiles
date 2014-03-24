@@ -41,6 +41,8 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/bin/dotfiles/aliases
 source $(brew --prefix nvm)/nvm.sh
 
+[[ -s "$HOME/bin/dotfiles/coupa" ]] && . "$HOME/bin/dotfiles/coupa"
+
 # make Sublime the default editor
 export EDITOR="$HOME/bin/subl -n"
 export PSQL_EDITOR="$HOME/bin/subl"
