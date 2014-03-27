@@ -1,26 +1,5 @@
-# taken from @jsmestad's gist - http://gist.github.com/406963
-require 'pp'
 # Make gems available
 require 'rubygems'
-
-# http://drnicutilities.rubyforge.org/map_by_method/
-require 'map_by_method'
-
-# Dr Nic's gem inspired by
-# http://redhanded.hobix.com/inspect/stickItInYourIrbrcMethodfinder.html
-require 'what_methods'
-
-# Print information about any HTTP requests being made
-require 'net-http-spy'
-
-# Draw ASCII tables
-require 'hirb'
-require 'hirb/import_object'
-Hirb.enable
-extend Hirb::Console
-
-# 'lp' to show method lookup path
-require 'looksee/shortcuts'
 
 # Load the readline module.
 IRB.conf[:USE_READLINE] = true
@@ -39,15 +18,6 @@ require 'irb/ext/save-history'
 IRB.conf[:SAVE_HISTORY] = 100
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
 
-# Wirble is a set of enhancements for irb
-# http://pablotron.org/software/wirble/README
-# Implies require 'pp', 'irb/completion', and 'rubygems'
-require 'wirble'
-Wirble.init
-
-# Enable colored output
-Wirble.colorize
-
 # Clear the screen
 def clear
   system 'clear'
@@ -62,10 +32,10 @@ end
 # http://www.themomorohoax.com/2009/03/27/irb-tip-load-files-faster
 def fl(file_name)
    file_name += '.rb' unless file_name =~ /\.rb/
-   @@recent = file_name 
+   @@recent = file_name
    load "#{file_name}"
 end
- 
+
 def rl
   fl(@@recent)
 end
@@ -77,7 +47,7 @@ def rt
   eval(choose_last_command)
 end
 
-# prevent 'rt' itself from recursing. 
+# prevent 'rt' itself from recursing.
 def choose_last_command
   real_last = Readline::HISTORY.to_a[-2]
   real_last == 'rt' ? @@saved_last :  (@@saved_last = real_last)
@@ -115,7 +85,7 @@ class Object
     end
     max_name = data.collect {|item| item[0].size}.max
     max_args = data.collect {|item| item[1].size}.max
-    data.each do |item| 
+    data.each do |item|
       print " #{ANSI_BOLD}#{item[0].to_s.rjust(max_name)}#{ANSI_RESET}"
       print "#{ANSI_GRAY}#{item[1].ljust(max_args)}#{ANSI_RESET}"
       print "   #{ANSI_LGRAY}#{item[2]}#{ANSI_RESET}\n"
@@ -123,10 +93,6 @@ class Object
     data.size
   end
 end
-
-# http://sketches.rubyforge.org/
-require 'sketches'
-Sketches.config :editor => ENV['EDITOR']
 
 # Easily print methods local to an object's class
 class Object
