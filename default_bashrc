@@ -1,3 +1,5 @@
+# THIS FILE IS USED FOR .bashrc ON ANY REMOTE SERVER
+
 # aliases
 alias ll="ls -lhF"
 alias lla="ls -lAhF"
