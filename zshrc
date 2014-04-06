@@ -35,7 +35,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(brew bundler)
 
 # Customize to your needs...
-export PATH=$PATH:$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin
+export PATH=$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/bin/dotfiles/aliases
