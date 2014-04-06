@@ -39,9 +39,8 @@ export PATH=$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bi
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/bin/dotfiles/aliases
-source $(brew --prefix nvm)/nvm.sh
 
-[[ -s "$HOME/bin/dotfiles/coupa" ]] && . "$HOME/bin/dotfiles/coupa"
+[[ -s "$(brew --prefix nvm)/nvm.sh" ]] && . "$(brew --prefix nvm)/nvm.sh"
 
 # make Sublime the default editor
 export EDITOR="$HOME/bin/subl -n"
