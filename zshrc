@@ -34,14 +34,14 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(brew bundler)
 
+# Customize to your needs...
+export PATH=$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:$PATH
+
 source $ZSH/oh-my-zsh.sh
 source $HOME/bin/dotfiles/aliases
-
-[[ -s "$(brew --prefix nvm)/nvm.sh" ]] && . "$(brew --prefix nvm)/nvm.sh"
 
 # make Sublime the default editor
 export EDITOR="$HOME/bin/subl -n"
 export PSQL_EDITOR="$HOME/bin/subl"
 
-# Customize to your needs...
-export PATH=$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:$PATH
+[[ -s "$(brew --prefix nvm)/nvm.sh" ]] && . "$(brew --prefix nvm)/nvm.sh"
