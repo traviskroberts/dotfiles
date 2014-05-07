@@ -16,12 +16,10 @@ alias mate="echo 'Did you mean subl perhaps?'"
 # rails
 alias migrate="rake db:migrate && rake db:test:clone"
 alias gr="rake routes | grep"
+alias resetdb="bundle exec rake db:reset && bundle exec rake db:test:prepare"
 
 # s3
 alias s3="/usr/lib/s3sync/s3cmd.rb"
-
-# heroku
-alias hl="heroku logs -n 1000 > ~/Desktop/heroku_$(date +%Y_%m_%d_%H_%M_%S).txt && subl ~/Desktop/heroku_$(date +%Y_%m_%d_%H_%M_%S).txt"
 
 # rails server (2.x and 3.x)
 function rs {
@@ -53,10 +51,4 @@ function rg {
 # rails bundle exec
 function be {
   bundle exec $@
-}
-
-# get full history diff of a file in git
-# NOT CURRENTLY WORKING
-function diffgit {
-  git --no-pager log -p $0 > ~/Desktop/history.diff
 }
