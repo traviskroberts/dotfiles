@@ -18,6 +18,7 @@
   pulld = pull origin develop
   mg = merge --no-ff --log
   fu = fetch upstream -v
+  fo = fetch origin
   stache = stash
   standup = log --since yesterday --author traviskroberts@gmail.com --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [github]
