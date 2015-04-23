@@ -14,12 +14,9 @@
   pullm = pull origin master
   pushs = push origin staging
   pulls = pull origin staging
-  pushd = push origin develop
-  pulld = pull origin develop
-  mg = merge --no-ff --log
   fu = fetch upstream -v
-  fo = fetch origin --prune
   stache = stash
+  fo = fetch origin -v --prune
   standup = log --since yesterday --author traviskroberts@gmail.com --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [github]
   user = traviskroberts
@@ -28,22 +25,20 @@
   status = auto
   branch = auto
   ui = auto
+[merge]
+  tool = opendiff
 [mergetool]
   keepBackup = false
 [core]
   editor = vim
-[gui]
 [push]
-  # Push current branch even if you've never pushed it before
   default = current
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn
 [rerere]
-	enabled = true
+  enabled = true
 [diff]
-	algorithm = patience
+  algorithm = patience
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
-[merge]
-	tool = opendiff
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
