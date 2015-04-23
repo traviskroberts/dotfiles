@@ -18,11 +18,11 @@
   pulld = pull origin develop
   mg = merge --no-ff --log
   fu = fetch upstream -v
-  fo = fetch origin
+  fo = fetch origin --prune
   stache = stash
   standup = log --since yesterday --author traviskroberts@gmail.com --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [github]
-  user = travisr
+  user = traviskroberts
 [color]
   diff = auto
   status = auto
@@ -31,9 +31,8 @@
 [mergetool]
   keepBackup = false
 [core]
-  editor = subl -n -w
+  editor = vim
 [gui]
-  recentrepo = /Library/WebServer/urc-prayer
 [push]
   # Push current branch even if you've never pushed it before
   default = current
