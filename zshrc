@@ -37,6 +37,7 @@ plugins=(brew bundler)
 export JAVA_HOME=$(/usr/libexec/java_home)
 export CS_HOME=$HOME/.aws/cloud-search-tools
 export AWS_CREDENTIAL_FILE=$HOME/.aws/credentials
+export LIVE_RELOAD=1
 
 # Customize to your needs...
 export PATH=$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:$CS_HOME/bin:$PATH
