@@ -1,7 +1,7 @@
 # all-purpose aliases
 alias h="cd ~"
-alias c="clear"
-alias hc="cd ~ && clear"
+alias c="clear && printf '\e]0;\a'"
+alias hc="cd ~ && clear && printf '\e]0;\a'"
 alias ll="ls -lhF"
 alias lla="ls -lAhF"
 alias ..="cd .."
