@@ -14,7 +14,7 @@ alias kat="pygmentize -f terminal -g"
 alias mate="echo 'Did you mean subl perhaps?'"
 
 # rails
-alias migrate="rake db:migrate && rake db:test:clone"
+alias migrate="rake db:migrate && rake db:test:prepare"
 alias gr="rake routes | grep"
 alias resetdb="bundle exec rake log:clear db:reset && bundle exec rake db:test:prepare"
 
