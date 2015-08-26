@@ -11,9 +11,10 @@ local user_host='%{$fg[green]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color
 local rvm_ruby=' %{$fg[yellow]%}$(rvm_info_for_prompt)%{$reset_color%}'
 local current_dir=':%~'
 local git_branch='$(git_prompt_info)%{$reset_color%}'
+local git_radar='$(git-radar --zsh)%{$reset_color%}'
 
 PROMPT="
-┌[${user_host}]${rvm_ruby}${current_dir}${git_branch}
+┌[${user_host}]${rvm_ruby}${current_dir}${git_radar}
 └[%B%{$fg[blue]%}$%{$reset_color%}%b] "
 RPS1="%{$(echotc UP 1)%}%{$fg[magenta]%}[%D{%L:%M:%S %p}]%{$reset_color%}%{$(echotc DO 1)%}"
 
