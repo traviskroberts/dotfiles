@@ -2,6 +2,15 @@
 ZSH=$HOME/.oh-my-zsh
 
 export LSCOLORS="exfxcxdxbxegedabagacad"
+export JAVA_HOME=$(/usr/libexec/java_home)
+export CS_HOME=$HOME/.aws/cloud-search-tools
+export AWS_CREDENTIAL_FILE=$HOME/.aws/credentials
+export LIVE_RELOAD=1
+export GIT_RADAR_FORMAT=" %{$fg[magenta]%}git%{$reset_color%}:(%{remote: }%{branch}%{ :local})%{$reset_color%}%{ :changes}"
+
+# make Sublime the default editor
+export EDITOR="/usr/local/bin/atom -nw"
+export PSQL_EDITOR="/usr/local/bin/atom"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -34,19 +43,10 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(brew bundler)
 
-export JAVA_HOME=$(/usr/libexec/java_home)
-export CS_HOME=$HOME/.aws/cloud-search-tools
-export AWS_CREDENTIAL_FILE=$HOME/.aws/credentials
-export LIVE_RELOAD=1
-
 # Customize to your needs...
 export PATH=$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:$CS_HOME/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/bin/dotfiles/aliases
-
-# make Sublime the default editor
-export EDITOR="$HOME/bin/subl -n"
-export PSQL_EDITOR="$HOME/bin/subl"
 
 [[ -s "$(brew --prefix nvm)/nvm.sh" ]] && . "$(brew --prefix nvm)/nvm.sh"
