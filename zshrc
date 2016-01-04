@@ -1,12 +1,11 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
-export LSCOLORS="exfxcxdxbxegedabagacad"
+export GIT_RADAR_FORMAT=" %{$fg[magenta]%}git%{$reset_color%}:(%{remote: }%{branch}%{ :local})%{$reset_color%}%{ :changes}"
 export JAVA_HOME=$(/usr/libexec/java_home)
 export CS_HOME=$HOME/.aws/cloud-search-tools
 export AWS_CREDENTIAL_FILE=$HOME/.aws/credentials
 export LIVE_RELOAD=1
-export GIT_RADAR_FORMAT=" %{$fg[magenta]%}git%{$reset_color%}:(%{remote: }%{branch}%{ :local})%{$reset_color%}%{ :changes}"
 
 # make Sublime the default editor
 export EDITOR="/usr/local/bin/atom -nw"
@@ -43,10 +42,12 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(brew bundler)
 
+
 # Customize to your needs...
 export PATH=$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:$CS_HOME/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
+export LSCOLORS="exfxcxdxbxegedabagacad"
 source $HOME/bin/dotfiles/aliases
 
 [[ -s "$(brew --prefix nvm)/nvm.sh" ]] && . "$(brew --prefix nvm)/nvm.sh"
