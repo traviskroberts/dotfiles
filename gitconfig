@@ -24,13 +24,21 @@
   diff = auto
   status = auto
   branch = auto
-  ui = auto
+  ui = always
+[color "diff"]
+  meta = yellow bold
+  commit = green bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
 [merge]
   tool = opendiff
 [mergetool]
   keepBackup = false
 [core]
   editor = vim
+  pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
 [push]
   default = current
 [apply]
@@ -43,6 +51,6 @@
   clean = git-media-clean %f
   smudge = git-media-smudge %f
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
