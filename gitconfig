@@ -38,7 +38,7 @@
   keepBackup = false
 [core]
   editor = vim
-  pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
+  pager = diff-so-fancy | less --tabs=1,5 -RFX
 [push]
   default = current
 [apply]
