@@ -17,7 +17,7 @@
   fu = fetch upstream -v
   stache = stash
   fo = fetch origin -v --prune
-  standup = log --since yesterday --author traviskroberts@gmail.com --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+  can = commit --amend --no-edit
 [github]
   user = traviskroberts
 [color]
