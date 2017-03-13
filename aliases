@@ -11,16 +11,12 @@ alias dir_size="du -sh"
 alias flush_cache="dscacheutil -flushcache"
 alias updatedb="sudo /usr/libexec/locate.updatedb"
 alias kat="pygmentize -f terminal -g"
-alias mate="echo 'Did you mean subl perhaps?'"
 
 # rails
 alias migrate="rake db:migrate && rake db:test:prepare"
 alias gr="rake routes | grep"
-alias resetdb="bundle exec rake log:clear db:reset && bundle exec rake db:test:prepare"
-alias resetdbf="FULL=1 bundle exec rake log:clear db:reset && bundle exec rake db:test:prepare"
-
-# s3
-alias s3="/usr/lib/s3sync/s3cmd.rb"
+alias resetdb="bundle exec rake log:clear db:reset && bundle exec rake db:test:prepare && redis-cli flushall"
+alias resetdbf="FULL=1 bundle exec rake log:clear db:reset && bundle exec rake db:test:prepare && redis-cli flushall"
 
 # rails server (2.x and 3.x)
 function rs {
