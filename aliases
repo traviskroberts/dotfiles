@@ -15,8 +15,6 @@ alias kat="pygmentize -f terminal -g"
 # rails
 alias migrate="rake db:migrate && rake db:test:prepare"
 alias gr="rake routes | grep"
-alias resetdb="bundle exec rake log:clear db:reset && bundle exec rake db:test:prepare && redis-cli flushall"
-alias resetdbf="FULL=1 bundle exec rake log:clear db:reset && bundle exec rake db:test:prepare && redis-cli flushall"
 
 # rails server (2.x and 3.x)
 function rs {
@@ -48,4 +46,17 @@ function rg {
 # rails bundle exec
 function be {
   bundle exec $@
+}
+
+function resetdb {
+  if [[ $1 == '-f' ]] || [[ $1 == '--full' ]]; then
+    echo "DB Reset (full)"
+    FULL=1 bundle exec rake log:clear db:reset && bundle exec rake db:test:prepare && redis-cli flushall
+  elif [[ $1 == '-s' ]] || [[ $1 == '--simple' ]]; then
+    echo "DB Reset (simple)"
+    bundle exec rake log:clear db:drop db:create db:schema:load && bundle exec rake db:test:prepare && redis-cli flushall
+  else
+    echo "DB Reset"
+    bundle exec rake log:clear db:reset && bundle exec rake db:test:prepare && redis-cli flushall
+  fi
 }
