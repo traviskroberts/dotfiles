@@ -6,10 +6,14 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export CS_HOME=$HOME/.aws/cloud-search-tools
 export AWS_CREDENTIAL_FILE=$HOME/.aws/credentials
 export LIVE_RELOAD=1
+export RACK_ENV="development"
 
-# make Sublime the default editor
+# make Atom the default editor
 export EDITOR="/usr/local/bin/atom -nw"
 export PSQL_EDITOR="/usr/local/bin/atom"
+
+# set nvm dir
+export NVM_DIR="$HOME/.nvm"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -44,7 +48,7 @@ plugins=(brew bundler)
 
 
 # Customize to your needs...
-export PATH=$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:$CS_HOME/bin:$PATH
+export PATH=/Users/travis/Library/Python/2.7/bin:$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:$CS_HOME/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 export LSCOLORS="exfxcxdxbxegedabagacad"
