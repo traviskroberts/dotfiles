@@ -12,9 +12,6 @@ export RACK_ENV="development"
 export EDITOR="/usr/local/bin/atom -nw"
 export PSQL_EDITOR="/usr/local/bin/atom"
 
-# set nvm dir
-export NVM_DIR="$HOME/.nvm"
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -22,8 +19,6 @@ export NVM_DIR="$HOME/.nvm"
 ZSH_THEME="travis"
 
 # Example aliases
-alias zshconfig="subl ~/.zshrc"
-alias ohmyzsh="subl ~/.oh-my-zsh"
 alias df="source $HOME/.zshrc"
 
 # Set to this to use case-sensitive completion
@@ -53,5 +48,4 @@ export PATH=/Users/travis/Library/Python/2.7/bin:$HOME/.rvm/bin:/usr/local/bin:/
 source $ZSH/oh-my-zsh.sh
 export LSCOLORS="exfxcxdxbxegedabagacad"
 source $HOME/bin/dotfiles/aliases
-
-[[ -s "$(brew --prefix nvm)/nvm.sh" ]] && . "$(brew --prefix nvm)/nvm.sh"
+source $HOME/bin/dotfiles/nvm
