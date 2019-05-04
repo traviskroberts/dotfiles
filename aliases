@@ -13,6 +13,9 @@ alias updatedb="sudo /usr/libexec/locate.updatedb"
 alias kat="pygmentize -f terminal -g"
 alias tf="terraform"
 
+# Docker/Docker Compose
+alias dc="docker-compose"
+
 # rails
 alias migrate="rake db:migrate && rake db:test:prepare"
 alias gr="rake routes | grep"
