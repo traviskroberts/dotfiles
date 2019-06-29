@@ -15,7 +15,6 @@
   pushs = push origin staging
   pulls = pull origin staging
   fu = fetch upstream -v
-  stache = stash
   fo = fetch origin -v --prune
   amend = commit --amend --no-edit
 [github]

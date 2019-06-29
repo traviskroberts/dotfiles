@@ -1,7 +1,7 @@
 # all-purpose aliases
 alias h="cd ~"
-alias c="clear && printf '\e]0;\a'"
-alias hc="cd ~ && clear && printf '\e]0;\a'"
+alias c="clear"
+alias hc="cd ~ && clear"
 alias ll="ls -lhF"
 alias lla="ls -lAhF"
 alias ..="cd .."
@@ -9,8 +9,6 @@ alias ...="cd ../.."
 alias apache="sudo /usr/sbin/apachectl"
 alias dir_size="du -sh"
 alias flush_cache="dscacheutil -flushcache"
-alias updatedb="sudo /usr/libexec/locate.updatedb"
-alias kat="pygmentize -f terminal -g"
 alias tf="terraform"
 
 # Docker/Docker Compose
@@ -19,38 +17,10 @@ alias dc="docker-compose"
 # rails
 alias migrate="rake db:migrate && rake db:test:prepare"
 alias gr="rake routes | grep"
-
-# rails server (2.x and 3.x)
-function rs {
-  if [ -e script/rails ]; then
-    bundle exec rails server $@
-  else
-    script/server $@
-  fi
-}
-
-# rails console (2.x and 3.x)
-function rc {
-  if [ -e script/rails ]; then
-    bundle exec rails console $@
-  else
-    script/console $@
-  fi
-}
-
-# rails generate (2.x and 3.x)
-function rg {
-  if [ -e script/rails ]; then
-    bundle exec rails generate $@
-  else
-    script/generate $@
-  fi
-}
-
-# rails bundle exec
-function be {
-  bundle exec $@
-}
+alias rs="bundle exec rails server"
+alias rc="bundle exec rails console"
+alias rg="bundle exec rails generate"
+alias be="bundle exec"
 
 function resetdb {
   if [[ $1 == '-f' ]] || [[ $1 == '--full' ]]; then
