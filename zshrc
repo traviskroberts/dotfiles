@@ -7,6 +7,7 @@ export CS_HOME=$HOME/.aws/cloud-search-tools
 export AWS_CREDENTIAL_FILE=$HOME/.aws/credentials
 export LIVE_RELOAD=1
 export RACK_ENV="development"
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 # make Atom the default editor
 export EDITOR="/usr/local/bin/atom -nw"
