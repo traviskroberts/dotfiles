@@ -14,10 +14,10 @@ ln -sf ~/dotfiles/screenrc ~/.screenrc
 ln -sf ~/dotfiles/sqliterc ~/.sqliterc
 ln -sf ~/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/dotfiles/vimrc ~/.vimrc
-ln -sf ~/dotfiles/zshrd ~/.zshrd
+ln -sf ~/dotfiles/zshrc ~/.zshrc
 
 # ZSH Theme
-ls -sf ~/dotfiles/zsh/travis.zsh-theme ~/.oh-my-zsh/themes/travis.zsh-theme
+ln -sf ~/dotfiles/zsh/travis.zsh-theme ~/.oh-my-zsh/themes/travis.zsh-theme
 
 # Vim Theme
 ln -sf ~/dotfiles/vim/railscasts.vim ~/.vim/colors/railscasts.vim
