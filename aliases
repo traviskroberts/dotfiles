@@ -10,6 +10,7 @@ alias apache="sudo /usr/sbin/apachectl"
 alias dir_size="du -sh"
 alias flush_cache="dscacheutil -flushcache"
 alias tf="terraform"
+alias gpm="git pull origin master"
 
 # Docker/Docker Compose
 alias dc="docker-compose"
@@ -23,19 +24,22 @@ alias rg="bundle exec rails generate"
 alias be="bundle exec"
 
 function resetdb {
+  bundle exec rails db:environment:set RAILS_ENV=development
+
   if [[ $1 == '-f' ]] || [[ $1 == '--full' ]]; then
-    echo "DB Reset (full)"
-    bundle exec rake log:clear db:reset
+    echo "$(tput setaf 2)> DB Reset (full)$(tput sgr 0)"
+    bundle exec rails log:clear db:reset
     export FULL=1
-    bundle exec rake seed:channels seed:games seed:videos seed:youtube_videos seed:discover_modules seed:mixes seed:recommendation_tiles seed:randomizer_tiles
+    bundle exec rails seed:channels seed:games seed:videos seed:youtube_videos seed:discover_modules seed:mixes seed:recommendation_tiles seed:randomizer_tiles
   elif [[ $1 == '-s' ]] || [[ $1 == '--simple' ]]; then
-    echo "DB Reset (simple)"
-    bundle exec rake log:clear db:drop db:create db:schema:load
+    echo "$(tput setaf 2)> DB Reset (simple)$(tput sgr 0)"
+    bundle exec rails log:clear db:reset
   else
-    echo "DB Reset"
-    bundle exec rake log:clear db:reset seed:discover_modules seed:recommendation_tiles seed:randomizer_tiles
+    echo "$(tput setaf 2)> DB Reset$(tput sgr 0)"
+    bundle exec rails log:clear db:reset seed:discover_modules seed:recommendation_tiles seed:randomizer_tiles
   fi
 
-  echo "Preparing Test DB"
-  bundle exec rake db:test:prepare
+  echo "$(tput setaf 2)> Preparing Test DB$(tput sgr 0)"
+  RAILS_ENV=test bundle exec rails db:drop db:create db:schema:load
+  bundle exec rails db:environment:set RAILS_ENV=development
 }
