@@ -13,6 +13,13 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 export EDITOR="/usr/local/bin/atom -nw"
 export PSQL_EDITOR="/usr/local/bin/atom"
 
+# exa colors
+export EXA_COLORS="da=37:uu=37;1:un=37:gu=37;1:gn=37:sb=33:sn=33;1"
+export EXA_COLORS="ur=37:uw=37:ux=37;1:ue=37;1:$EXA_COLORS" # user file permissions
+export EXA_COLORS="gr=37:gw=37:gx=37;1:$EXA_COLORS" # group file permissions
+export EXA_COLORS="tr=37:tw=37:tx=37;1:$EXA_COLORS" # world file permissions
+export EXA_COLORS="*.rb=33:$EXA_COLORS" # world file permissions
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
