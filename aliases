@@ -23,6 +23,12 @@ alias rc="bundle exec rails console"
 alias rg="bundle exec rails generate"
 alias be="bundle exec"
 
+# navigation
+alias gna="cd ~/Sites/gn-api && title 'gn-api' && clear"
+alias gne="cd ~/Sites/gn-educator-web && title 'gn-educator-web' && clear"
+alias gnf="cd ~/Sites/gn-family-web && title 'gn-family-web' && clear"
+alias gnm="cd ~/Sites/gn-marketing && title 'gn-marketing' && clear"
+
 function resetdb {
   bundle exec rails db:environment:set RAILS_ENV=development
 
