@@ -39,7 +39,7 @@ function resetdb {
     bundle exec rails seed:channels seed:games seed:videos seed:youtube_videos seed:discover_modules seed:mixes seed:recommendation_tiles seed:randomizer_tiles
   elif [[ $1 == '-s' ]] || [[ $1 == '--simple' ]]; then
     echo "$(tput setaf 2)> DB Reset (simple)$(tput sgr 0)"
-    bundle exec rails log:clear db:reset
+    bundle exec rails log:clear db:drop db:create db:schema:load
   else
     echo "$(tput setaf 2)> DB Reset$(tput sgr 0)"
     bundle exec rails log:clear db:reset seed:discover_modules seed:recommendation_tiles seed:randomizer_tiles
