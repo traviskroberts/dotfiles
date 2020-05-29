@@ -1,9 +1,16 @@
 # ZSH Theme
 
-function rvm_info_for_prompt {
-  ruby_version=$(~/.rvm/bin/rvm-prompt i v g)
+function ruby_info_for_prompt {
+  if [[ -s "~/.rvm/bin/rvm-prompt" ]]; then
+    ruby_version=$(~/.rvm/bin/rvm-prompt i v g)
+  fi
+
+  if [[ -s $(brew --prefix asdf) ]]; then
+    ruby_version=${$(asdf current ruby)[1]}
+  fi
+
   if [ -n "$ruby_version" ]; then
-    echo "[$ruby_version]"
+    echo "[ruby-$ruby_version]"
   fi
 }
 
@@ -20,7 +27,7 @@ function precmd() {
 }
 
 local user_host='%{$fg[green]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}'
-local rvm_ruby=' %{$fg[yellow]%}$(rvm_info_for_prompt)%{$reset_color%}'
+local rvm_ruby=' %{$fg[yellow]%}$(ruby_info_for_prompt)%{$reset_color%}'
 local current_dir=':%~'
 local git_branch='$(git_prompt_info)%{$reset_color%}'
 local git_radar='$(git-radar --zsh)%{$reset_color%}'
