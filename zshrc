@@ -56,7 +56,6 @@ export PATH=/usr/local/opt/mysql@5.6/bin:/Users/travis/Library/Python/2.7/bin:$H
 source $ZSH/oh-my-zsh.sh
 export LSCOLORS="exfxcxdxbxegedabagacad"
 source $HOME/dotfiles/aliases
-source $HOME/dotfiles/nvm
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "/usr/local/bin/direnv" ]] && eval "$(direnv hook zsh)"
