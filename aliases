@@ -6,11 +6,11 @@ alias ll="exa -lhF"
 alias lla="exa -lahF"
 alias ..="cd .."
 alias ...="cd ../.."
-alias apache="sudo /usr/sbin/apachectl"
 alias dir_size="du -sh"
 alias flush_cache="dscacheutil -flushcache"
 alias tf="terraform"
-alias gpm="git pull origin master"
+alias com="git checkout master"
+alias comp="git checkout master && git pull origin master"
 
 # Docker/Docker Compose
 alias dc="docker-compose"
