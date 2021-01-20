@@ -1,6 +1,6 @@
 [user]
-  name = Travis Roberts
-  email = traviskroberts@gmail.com
+	name = Travis Roberts
+	email = traviskroberts@gmail.com
 [credential]
   helper = osxkeychain
 [alias]
