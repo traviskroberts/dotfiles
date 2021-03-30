@@ -51,3 +51,12 @@ function resetdb {
   RAILS_ENV=test bundle exec rails db:drop db:create db:schema:load
   bundle exec rails db:environment:set RAILS_ENV=development
 }
+
+# source: https://github.com/sgrj/fzf-functions
+function delete-branches() {
+  git branch |
+    grep --invert-match '\*' |
+    cut -c 3- |
+    fzf --multi |
+    xargs git branch --delete --force
+}
