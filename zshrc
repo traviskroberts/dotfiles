@@ -51,7 +51,7 @@ plugins=(brew bundler)
 
 
 # Customize to your needs...
-export PATH=/usr/local/opt/mysql@5.6/bin:/Users/travis/Library/Python/2.7/bin:$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:/Users/travis/Library/Android/sdk/platform-tools:/usr/local/heroku/bin:$PATH
+export PATH=/usr/local/opt/mysql@5.6/bin:$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:/Users/travis/Library/Android/sdk/platform-tools:/usr/local/heroku/bin:$PATH
 
 # OpenSSL config
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
