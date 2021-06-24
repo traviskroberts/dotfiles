@@ -26,6 +26,8 @@ alias be="bundle exec"
 
 # navigation
 alias gna="cd ~/Sites/gn-api && title 'gn-api' && clear"
+alias gnad="cd ~/Sites/gn-api-documentation && title 'gn-api-documentation' && clear"
+alias gnp="cd ~/Sites/gn-api-phoenix && title 'gn-api-phoenix' && clear"
 alias gne="cd ~/Sites/gn-educator-web && title 'gn-educator-web' && clear"
 alias gnf="cd ~/Sites/gn-family-web && title 'gn-family-web' && clear"
 alias gnm="cd ~/Sites/gn-marketing && title 'gn-marketing' && clear"
