@@ -2,10 +2,7 @@
 ZSH=$HOME/.oh-my-zsh
 
 export GIT_RADAR_FORMAT=" %{$fg[magenta]%}git%{$reset_color%}:(%{remote: }%{branch}%{ :local})%{$reset_color%}%{ :changes}"
-export JAVA_HOME=$(/usr/libexec/java_home)
-export CS_HOME=$HOME/.aws/cloud-search-tools
 export AWS_CREDENTIAL_FILE=$HOME/.aws/credentials
-export LIVE_RELOAD=1
 export RACK_ENV="development"
 export ERL_AFLAGS="-kernel shell_history enabled"
 
@@ -60,7 +57,7 @@ export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 
 source $ZSH/oh-my-zsh.sh
 export LSCOLORS="exfxcxdxbxegedabagacad"
-source $HOME/dotfiles/aliases
+source $HOME/sites/dotfiles/aliases
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "/usr/local/bin/direnv" ]] && eval "$(direnv hook zsh)"
