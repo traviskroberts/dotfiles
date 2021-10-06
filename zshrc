@@ -48,15 +48,13 @@ plugins=(brew bundler)
 
 
 # Customize to your needs...
-export PATH=/usr/local/opt/mysql@5.6/bin:$HOME/.rvm/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/npm/bin:/Users/travis/Library/Android/sdk/platform-tools:/usr/local/heroku/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/share/npm/bin:/usr/local/heroku/bin:/usr/local/opt/openssl@1.1/bin:$PATH
 
 # OpenSSL config
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
 export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 
 source $ZSH/oh-my-zsh.sh
-export LSCOLORS="exfxcxdxbxegedabagacad"
 source $HOME/sites/dotfiles/aliases
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
