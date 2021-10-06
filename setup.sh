@@ -4,7 +4,7 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # install homebrew packages
-brew install git exa bat asdf
+brew install git exa bat asdf diff-so-fancy
 brew install michaeldfallen/formula/git-radar
 
 # link dotfiles
