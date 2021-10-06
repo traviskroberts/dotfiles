@@ -6,9 +6,9 @@ export AWS_CREDENTIAL_FILE=$HOME/.aws/credentials
 export RACK_ENV="development"
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-# make Atom the default editor
-export EDITOR="/usr/local/bin/atom -nw"
-export PSQL_EDITOR="/usr/local/bin/atom"
+# make VS Code the default editor
+export EDITOR="/usr/local/bin/code -nw"
+export PSQL_EDITOR="/usr/local/bin/code"
 
 # exa colors
 export EXA_COLORS="da=37:uu=37;1:un=37:gu=37;1:gn=37:sb=33:sn=33;1"
