@@ -6,7 +6,7 @@ function ruby_info_for_prompt {
   fi
 
   if [[ -s $(brew --prefix asdf) ]]; then
-    ruby_version=${$(asdf current ruby)[2]}
+    ruby_version=${$(asdf current ruby)[1]}
   fi
 
   if [ -n "$ruby_version" ]; then
