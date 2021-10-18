@@ -1,10 +1,17 @@
 #!/usr/bin/env bash
 
 # install homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if [[ ! -s "/usr/local/bin/brew" ]]; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
 
 # install homebrew packages
-brew install git exa bat asdf diff-so-fancy
+brew install git
+brew install exa
+brew install bat
+brew install asdf
+brew install diff-so-fancy
+brew install fzf
 brew install michaeldfallen/formula/git-radar
 
 # link dotfiles
