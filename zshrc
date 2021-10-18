@@ -60,3 +60,4 @@ source $HOME/sites/dotfiles/aliases
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "/usr/local/bin/direnv" ]] && eval "$(direnv hook zsh)"
 [[ -s $(brew --prefix asdf)/asdf.sh ]] && . $(brew --prefix asdf)/asdf.sh
+[[ -s "$HOME/.betterup_profile/init.sh" ]] && emulate sh -c "source $HOME/.betterup_profile/init.sh"
