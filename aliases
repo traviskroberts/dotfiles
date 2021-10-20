@@ -47,3 +47,8 @@ function delete-branches() {
     fzf --multi |
     xargs git branch --delete --force
 }
+
+# BetterUp function to start new feature branch
+startwork() {
+  git start --issue BUAPP-$1 BUAPP-$1/$2
+}
