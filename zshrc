@@ -1,6 +1,9 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 export GIT_RADAR_FORMAT=" %{$fg[magenta]%}git%{$reset_color%}:(%{remote: }%{branch}%{ :local})%{$reset_color%}%{ :changes}"
 export AWS_CREDENTIAL_FILE=$HOME/.aws/credentials
 export RACK_ENV="development"
@@ -48,11 +51,15 @@ plugins=(brew bundler)
 
 
 # Customize to your needs...
-export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/share/npm/bin:/usr/local/heroku/bin:/usr/local/opt/openssl@1.1/bin:$PATH
+export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/share/npm/bin:/usr/local/heroku/bin:$PATH
 
 # OpenSSL config
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export LDFLAGS="-L/opt/homebrew/opt/libffi/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/libffi/include"
+
+# asdf
+export RUBY_CONFIGURE_OPTS="--with-zlib-dir=/opt/homebrew/opt/zlib --with-openssl-dir=/opt/homebrew/opt/openssl@1.1 --with-readline-dir=/opt/homebrew/opt/readline --with-libyaml-dir=/opt/homebrew/opt/libyaml"
+export RUBY_CFLAGS="-Wno-error=implicit-function-declaration"
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/sites/dotfiles/aliases
