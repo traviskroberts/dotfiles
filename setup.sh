@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
 # install homebrew
-if [[ ! -s "/usr/local/bin/brew" ]]; then
+if [ ! -x "$(command -v brew)" ]; then
+  echo "$(tput setaf 2)> Installing homebrew...$(tput sgr 0)"
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # install homebrew packages
+echo "$(tput setaf 2)> Installing homebrew packages...$(tput sgr 0)"
 brew install git
 brew install exa
 brew install bat
@@ -15,6 +17,7 @@ brew install fzf
 brew install michaeldfallen/formula/git-radar
 
 # link dotfiles
+echo "$(tput setaf 2)> Linking dotfiles...$(tput sgr 0)"
 ln -sf ~/sites/dotfiles/ackrc ~/.ackrc
 ln -sf ~/sites/dotfiles/bashrc ~/.bashrc
 ln -sf ~/sites/dotfiles/editorconfig ~/.editorconfig
