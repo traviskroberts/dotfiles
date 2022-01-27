@@ -23,6 +23,10 @@ alias rc="bundle exec rails console"
 alias rg="bundle exec rails generate"
 alias be="bundle exec"
 
+# BetterUp
+alias bua="cd ~/sites/betterup-app"
+alias bup="cd ~/sites/betterup-product"
+
 function resetdb {
   bundle exec rails db:environment:set RAILS_ENV=development
 
