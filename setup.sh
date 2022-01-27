@@ -15,6 +15,7 @@ brew install asdf
 brew install diff-so-fancy
 brew install fzf
 brew install michaeldfallen/formula/git-radar
+brew tap cantino/mcfly && brew install mcfly
 
 # link dotfiles
 echo "$(tput setaf 2)> Linking dotfiles...$(tput sgr 0)"
