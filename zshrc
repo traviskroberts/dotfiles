@@ -2,7 +2,7 @@
 ZSH=$HOME/.oh-my-zsh
 
 # Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(brew shellenv)"
 
 export GIT_RADAR_FORMAT=" %{$fg[magenta]%}git%{$reset_color%}:(%{remote: }%{branch}%{ :local})%{$reset_color%}%{ :changes}"
 export AWS_CREDENTIAL_FILE=$HOME/.aws/credentials
