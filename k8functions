@@ -1,0 +1,43 @@
+# List the kubectl contexts and select one from the list
+function kctx {
+  local ctx=$(kubectl config get-contexts --output=name | fzf)
+  if [ -z "$ctx" ]; then
+    echo "No context selected"
+    return
+  fi
+  kubectl config use-context $ctx
+}
+
+# List the kubectl namespaces, and select one. You don't have to do this 
+# if there is a default namespace set. You may have to do this if the pods
+# you need access to are in a different namspace than the default (e.g. "staging").
+function knamespace {
+  local namespace=$(kubectl get namespaces --output name | fzf)
+  if [ -z "$namespace" ]; then
+    echo "No namespace selected"
+    return
+  fi
+  # remove "namespace/" from each namespace name
+  namespace=$(echo $namespace | sed 's/namespace\///')
+  kubectl config set-context --current --namespace=$namespace
+}
+
+# List the current kubectl pods and select one to run a bash shell in.
+function kbash {
+  local pod=$(kubectl get pods --output=name --field-selector=status.phase==Running | fzf)
+  if [ -z "$pod" ]; then
+    echo "No pod selected"
+    return
+  fi
+  kubectl exec -it ${pod} -- /bin/bash
+}
+
+# List the current kubectl pods and select one to run a rails console in.
+function krails {
+  local pod=$(kubectl get pods --output=name --field-selector=status.phase==Running | fzf)
+  if [ -z "$pod" ]; then
+    echo "No pod selected"
+    return
+  fi
+  kubectl exec -it ${pod} -- bin/rails c
+}

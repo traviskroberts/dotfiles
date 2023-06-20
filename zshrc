@@ -59,6 +59,7 @@ export CPPFLAGS="-I/usr/local/opt/libffi/include"
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/sites/dotfiles/aliases
+source $HOME/sites/dotfiles/k8functions
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "/usr/local/bin/direnv" ]] && eval "$(direnv hook zsh)"
