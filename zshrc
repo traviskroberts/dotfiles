@@ -8,6 +8,7 @@ export GIT_RADAR_FORMAT=" %{$fg[magenta]%}git%{$reset_color%}:(%{remote: }%{bran
 export AWS_CREDENTIAL_FILE=$HOME/.aws/credentials
 export RACK_ENV="development"
 export ERL_AFLAGS="-kernel shell_history enabled"
+export ASDF_DIR=$(brew --prefix asdf)/libexec
 
 # make VS Code the default editor
 export EDITOR="/usr/local/bin/code -nw"
@@ -49,24 +50,19 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(brew bundler)
 
-
 # Customize to your needs...
 export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/share/npm/bin:/usr/local/heroku/bin:$PATH
 
 # OpenSSL config
-export LDFLAGS="-L/opt/homebrew/opt/libffi/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/libffi/include"
-
-# asdf
-export RUBY_CONFIGURE_OPTS="--with-zlib-dir=/opt/homebrew/opt/zlib --with-openssl-dir=/opt/homebrew/opt/openssl@1.1 --with-readline-dir=/opt/homebrew/opt/readline --with-libyaml-dir=/opt/homebrew/opt/libyaml"
-export RUBY_CFLAGS="-Wno-error=implicit-function-declaration"
+export LDFLAGS="-L/usr/local/opt/libffi/lib"
+export CPPFLAGS="-I/usr/local/opt/libffi/include"
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/sites/dotfiles/aliases
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "/usr/local/bin/direnv" ]] && eval "$(direnv hook zsh)"
-[[ -s $(brew --prefix asdf)/asdf.sh ]] && . $(brew --prefix asdf)/asdf.sh
+[[ -s $(brew --prefix asdf)/libexec/asdf.sh ]] && . $(brew --prefix asdf)/libexec/asdf.sh
 [[ -s $(brew --prefix mcfly) ]] && eval "$(mcfly init zsh)"
 
 # BetterUp
