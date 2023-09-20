@@ -12,6 +12,8 @@
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   pushm = push origin main
   pullm = pull origin main
+  pushs = push origin staging
+  pulls = pull origin staging
   fu = fetch upstream -v
   fo = fetch origin -v --prune
   amend = commit --amend --no-edit
