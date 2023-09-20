@@ -31,6 +31,14 @@ local ruby_prompt=' %{$fg[yellow]%}$(ruby_info_for_prompt)%{$reset_color%}'
 local current_dir=':%~'
 local git_radar='$(git-radar --zsh)%{$reset_color%}'
 
+export KUBE_PS1_PREFIX=' ['
+export KUBE_PS1_SUFFIX=']'
+export KUBE_PS1_SEPARATOR=''
+export KUBE_PS1_SYMBOL_USE_IMG=true
+export KUBE_PS1_SYMBOL_PADDING=true
+export KUBE_PS1_NS_ENABLE=false
+export KUBE_PS1_CTX_COLOR=blue
+
 PROMPT="
-┌[${user_host}]${ruby_prompt}${current_dir}${git_radar}
+┌[${user_host}]${ruby_prompt}$(kube_ps1)${current_dir}${git_radar}
 └[%B%{$fg[blue]%}$%{$reset_color%}%b] "
