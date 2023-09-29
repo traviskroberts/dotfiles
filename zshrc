@@ -51,7 +51,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(brew bundler kube-ps1)
 
 # Customize to your needs...
-export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/share/npm/bin:/usr/local/heroku/bin:$PATH
+export PATH=/opt/homebrew/sbin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/share/npm/bin:/usr/local/heroku/bin:$PATH
 
 # OpenSSL config
 export LDFLAGS="-L/usr/local/opt/libffi/lib"
