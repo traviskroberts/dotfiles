@@ -53,15 +53,10 @@ plugins=(brew bundler kube-ps1)
 # Customize to your needs...
 export PATH=/opt/homebrew/sbin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/share/npm/bin:/usr/local/heroku/bin:$PATH
 
-# OpenSSL config
-export LDFLAGS="-L/usr/local/opt/libffi/lib"
-export CPPFLAGS="-I/usr/local/opt/libffi/include"
-
 source $ZSH/oh-my-zsh.sh
 source $HOME/sites/dotfiles/aliases
 source $HOME/sites/dotfiles/k8functions
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 [[ -s "/usr/local/bin/direnv" ]] && eval "$(direnv hook zsh)"
 [[ -s $(brew --prefix asdf)/libexec/asdf.sh ]] && . $(brew --prefix asdf)/libexec/asdf.sh
 [[ -s $(brew --prefix mcfly) ]] && eval "$(mcfly init zsh)"
