@@ -46,6 +46,7 @@
   enabled = true
 [diff]
   algorithm = patience
+	colorMoved = zebra
 [filter "media"]
   clean = git-media-clean %f
   smudge = git-media-smudge %f
@@ -54,4 +55,4 @@
   smudge = git-lfs smudge %f
   required = true
 [pull]
-	rebase = false
+	rebase = true
