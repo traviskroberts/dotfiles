@@ -38,4 +38,5 @@ ln -sf ~/sites/dotfiles/zshrc ~/.zshrc
 ln -sf ~/sites/dotfiles/zsh/travis.zsh-theme ~/.oh-my-zsh/themes/travis.zsh-theme
 
 # link vim theme
+mkdir -p ~/.vim/colors
 ln -sf ~/sites/dotfiles/vim/railscasts.vim ~/.vim/colors/railscasts.vim
