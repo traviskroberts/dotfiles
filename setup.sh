@@ -6,6 +6,12 @@ if [ ! -x "$(command -v brew)" ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
+# install oh-my-zsh
+if [ ! -d ~/.oh-my-zsh ]; then
+  echo "$(tput setaf 2)> Installing oh-my-zsh...$(tput sgr 0)"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
 # install homebrew packages
 echo "$(tput setaf 2)> Installing homebrew packages...$(tput sgr 0)"
 brew install git
