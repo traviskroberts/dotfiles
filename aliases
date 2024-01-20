@@ -28,6 +28,8 @@ alias k="kubectl"
 
 # BetterUp
 alias bua="cd ~/sites/betterup-app"
+alias bui="cd ~/sites/betterup-infrastructure"
+alias bum="cd ~/sites/betterup-monolith"
 alias bup="cd ~/sites/betterup-product"
 
 function resetdb {
