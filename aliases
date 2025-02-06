@@ -13,6 +13,8 @@ alias flush_cache="dscacheutil -flushcache"
 alias tf="terraform"
 alias com="git checkout master"
 alias comp="git checkout master && git pull origin master"
+alias fr="bin/rspec -f Fuubar"
+alias frd="bin/rake db:test:prepare && bin/rspec -f Fuubar"
 
 # Terminal profiles
 alias present="echo -e \"\033]50;SetProfile=Presentation\a\""
