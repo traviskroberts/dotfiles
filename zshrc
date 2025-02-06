@@ -13,6 +13,11 @@ export RACK_ENV="development"
 export ERL_AFLAGS="-kernel shell_history enabled"
 export ASDF_DIR=$(brew --prefix asdf)/libexec
 
+# Use cert.pm from ca-certificates
+if [ -f "$(brew --prefix)/etc/ca-certificates/cert.pem" ]; then
+  export SSL_CERT_FILE=$(brew --prefix)/etc/ca-certificates/cert.pem
+fi
+
 # make VS Code the default editor
 export EDITOR="/usr/local/bin/code -nw"
 export PSQL_EDITOR="/usr/local/bin/code"
@@ -51,7 +56,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew)
+plugins=()
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/sites/dotfiles/aliases
