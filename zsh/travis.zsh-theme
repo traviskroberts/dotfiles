@@ -2,7 +2,8 @@
 
 function ruby_info_for_prompt {
   if [[ -s $(brew --prefix asdf) ]]; then
-    ruby_version=${$(asdf current ruby)[2]}
+    local asdf_output=$(asdf current ruby 2> /dev/null)
+    ruby_version=$(echo "$asdf_output" | grep "^ruby" | awk '{print $2}')
   fi
 
   if [ -n "$ruby_version" ]; then
