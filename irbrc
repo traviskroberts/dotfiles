@@ -14,7 +14,7 @@ require 'irb/completion'
 IRB.conf[:AUTO_INDENT]=true
 
 # Save History between irb sessions
-require 'irb/ext/save-history'
+require 'irb/ext/eval_history'
 IRB.conf[:SAVE_HISTORY] = 100
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
 
