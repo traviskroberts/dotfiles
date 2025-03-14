@@ -1,0 +1,38 @@
+function start_ticket() {
+  # Usage `start_ticket "title"`
+  title=$1
+
+  echo "> Creating issue"
+  issue_key=$(jira create --noedit --project="DX" --issuetype="Task" -o summary="$title"  | awk '{print $2}')
+
+  echo "> Assigning issue to me"
+  jira take $issue_key
+
+  echo "> Moving issue to 'In Progress'"
+  jira transition --noedit "In Progress" $issue_key
+
+  echo "> Creating a new branch"
+  branch_from_jira $issue_key $title
+
+  echo "> Done!"
+}
+
+function branch_from_jira() {
+  # Usage `branch_from_jira DX-1024 "This is my ticket"`
+  issue_key=$1
+  if [ -z "$issue_key" ]; then
+    echo "No Jira issue key found in the input."
+    exit 1
+  fi
+
+  title=$2
+  if [ -z "$title" ]; then
+    echo "No title found in the input."
+    exit 1
+  fi
+
+  clean_title=$(echo "$title" | sed 's/[[:space:]\.\/_,;:]/-/g' | tr '[:upper:]' '[:lower:]')
+
+  # create a branch from the ticket
+  git checkout -b "$issue_key-$clean_title"
+}

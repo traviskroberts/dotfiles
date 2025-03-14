@@ -63,6 +63,7 @@ plugins=()
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/sites/dotfiles/aliases
+source $HOME/sites/dotfiles/jira
 source $HOME/sites/dotfiles/k8functions
 
 [[ -s "/usr/local/bin/direnv" ]] && eval "$(direnv hook zsh)"
