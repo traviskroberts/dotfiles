@@ -1,9 +1,15 @@
 function start_ticket() {
-  # Usage `start_ticket "title"`
+  # Usage `start_ticket "Add feature X" "unplanned"` - second argument (label) is optional
   title=$1
+  label=$2
 
   echo "> Creating issue"
   issue_key=$(jira create --noedit --project="DX" --issuetype="Task" -o summary="$title"  | awk '{print $2}')
+
+  if [ -n "$label" ]; then
+    echo "> Adding label '$label' to the issue"
+    jira labels add $issue_key "$label"
+  fi
 
   echo "> Assigning issue to me"
   jira take $issue_key
