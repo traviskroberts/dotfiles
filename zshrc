@@ -4,9 +4,6 @@ ZSH=$HOME/.oh-my-zsh
 # Customize to your needs...
 export PATH=/opt/homebrew/sbin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/share/npm/bin:/usr/local/heroku/bin:$PATH
 
-# asdf
-export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-
 # Homebrew
 eval "$(brew shellenv)"
 
@@ -14,7 +11,6 @@ export GIT_RADAR_FORMAT=" %{$fg[magenta]%}git%{$reset_color%}:(%{remote: }%{bran
 export AWS_CREDENTIAL_FILE=$HOME/.aws/credentials
 export RACK_ENV="development"
 export ERL_AFLAGS="-kernel shell_history enabled"
-export ASDF_DIR=$(brew --prefix asdf)/libexec
 
 # Use cert.pm from ca-certificates
 if [ -f "$(brew --prefix)/etc/ca-certificates/cert.pem" ]; then
