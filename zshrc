@@ -65,3 +65,4 @@ source $HOME/sites/dotfiles/k8functions
 [[ -s "/usr/local/bin/direnv" ]] && eval "$(direnv hook zsh)"
 [[ -s $(brew --prefix mcfly) ]] && eval "$(mcfly init zsh)"
 [[ -s $(brew --prefix mise) ]] && eval "$(mise activate zsh)"
+[[ -s "$HOME/sites/dotfiles/init.sh" ]] && source "$HOME/sites/dotfiles/init.sh"
