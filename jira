@@ -4,7 +4,7 @@ function start_ticket() {
   label=$2
 
   echo "> Creating issue"
-  issue_key=$(jira create --noedit --project="DX" --issuetype="Task" -o summary="$title"  | awk '{print $2}')
+  issue_key=$(jira create --noedit --project="AIPE" --issuetype="Task" -o summary="$title"  | awk '{print $2}')
 
   if [ -n "$label" ]; then
     echo "> Adding label '$label' to the issue"
