@@ -9,6 +9,26 @@ function ruby_info_for_prompt {
   fi
 }
 
+function site_path_prompt_segment {
+  local dir=${PWD/#$HOME\//}
+
+  if [[ $dir == sites/* ]]; then
+    local site=${dir#sites/}
+    site=${site%%/*}
+
+    local color="yellow"
+    case "$site" in
+      betterup-monolith) color="blue" ;;
+      betterup-infrastructure) color="cyan" ;;
+      betterup-product) color="magenta" ;;
+    esac
+
+    echo " %{$fg[${color}]%}<${site}>%{$reset_color%}"
+  else
+    echo ":%~"
+  fi
+}
+
 function preexec() {
   timer=${timer:-$SECONDS}
 }
@@ -23,9 +43,9 @@ function precmd() {
 
 local user_host='%{$fg[green]%}%n%{$reset_color%}@%{$fg[green]%}%m%{$reset_color%}'
 local ruby_prompt=' %{$fg[yellow]%}$(ruby_info_for_prompt)%{$reset_color%}'
-local current_dir=':%~'
+local site_segment='$(site_path_prompt_segment)'
 local git_radar='$(git-radar --zsh)%{$reset_color%}'
 
 PROMPT="
-┌[${user_host}]${ruby_prompt}${current_dir}${git_radar}
+┌[${user_host}]${ruby_prompt}${site_segment}${git_radar}
 └[%B%{$fg[blue]%}$%{$reset_color%}%b] "
