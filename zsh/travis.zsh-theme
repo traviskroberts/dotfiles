@@ -16,6 +16,9 @@ function site_path_prompt_segment {
     local site=${dir#sites/}
     site=${site%%/*}
 
+    local subpath=${dir#sites/$site}
+    subpath=${subpath#/}
+
     local color="yellow"
     case "$site" in
       betterup-monolith) color="blue" ;;
@@ -23,7 +26,11 @@ function site_path_prompt_segment {
       betterup-product) color="magenta" ;;
     esac
 
-    echo " %{$fg[${color}]%}<${site}>%{$reset_color%}"
+    if [[ -n "$subpath" ]]; then
+      echo " %{$fg[${color}]%}<${site}:${subpath}>%{$reset_color%}"
+    else
+      echo " %{$fg[${color}]%}<${site}>%{$reset_color%}"
+    fi
   else
     echo ":%~"
   fi
