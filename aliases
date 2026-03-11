@@ -33,12 +33,6 @@ alias be="bundle exec"
 # kubernetes
 alias k="kubectl"
 
-# BetterUp
-alias bua="cd ~/sites/betterup-app"
-alias bui="cd ~/sites/betterup-infrastructure"
-alias bum="cd ~/sites/betterup-monolith"
-alias bup="cd ~/sites/betterup-product"
-
 function resetdb {
   bundle exec rails db:environment:set RAILS_ENV=development
 
