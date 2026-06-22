@@ -17,7 +17,7 @@ echo "$(tput setaf 2)> Installing homebrew packages...$(tput sgr 0)"
 brew install git
 brew install eza
 brew install bat
-brew install asdf
+brew install mise
 brew install diff-so-fancy
 brew install fzf
 brew install michaeldfallen/formula/git-radar
