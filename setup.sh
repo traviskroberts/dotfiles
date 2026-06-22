@@ -40,6 +40,9 @@ ln -sf ~/sites/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/sites/dotfiles/vimrc ~/.vimrc
 ln -sf ~/sites/dotfiles/zshrc ~/.zshrc
 
+# link Ghostty config
+ln -sf ~/sites/dotfiles/config.ghostty ~/.config/ghostty/config.ghostty
+
 # link ZSH theme
 ln -sf ~/sites/dotfiles/zsh/travis.zsh-theme ~/.oh-my-zsh/themes/travis.zsh-theme
 

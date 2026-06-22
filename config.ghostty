@@ -1,0 +1,19 @@
+# Set font to Inconsolata 16px
+font-family = Inconsolata
+font-size = 16
+
+copy-on-select = clipboard
+link-url = true
+macos-icon = chalkboard
+theme = Everblush
+
+# Cursor
+cursor-style = block
+shell-integration-features = no-cursor
+
+# reset selection colors
+selection-foreground =
+selection-background =
+
+# Show/hide window with OPTION+SPACE
+keybind = global:option+space=toggle_visibility
