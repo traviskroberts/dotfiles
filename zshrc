@@ -17,9 +17,9 @@ if [ -f "$(brew --prefix)/etc/ca-certificates/cert.pem" ]; then
   export SSL_CERT_FILE=$(brew --prefix)/etc/ca-certificates/cert.pem
 fi
 
-# make VS Code the default editor
-export EDITOR="/usr/local/bin/code -nw"
-export PSQL_EDITOR="/usr/local/bin/code"
+# make Zed the default editor
+export EDITOR="/usr/local/bin/zed -nw"
+export PSQL_EDITOR="/usr/local/bin/zed"
 
 # eza colors
 export EZA_COLORS="da=37:uu=37;1:un=37:gu=37;1:gn=37:sb=33:sn=33;1"
