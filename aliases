@@ -23,13 +23,6 @@ alias reset_profile="echo -e \"\033]50;SetProfile=Hotkey Window\a\""
 # Docker/Docker Compose
 alias dc="docker-compose"
 
-# rails
-alias gr="bundle exec rails routes | grep"
-alias rs="bundle exec rails server"
-alias rc="bundle exec rails console"
-alias rg="bundle exec rails generate"
-alias be="bundle exec"
-
 # kubernetes
 alias k="kubectl"
 
