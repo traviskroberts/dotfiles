@@ -14,14 +14,18 @@ fi
 
 # install homebrew packages
 echo "$(tput setaf 2)> Installing homebrew packages...$(tput sgr 0)"
-brew install git
-brew install eza
-brew install bat
-brew install mise
-brew install diff-so-fancy
-brew install fzf
-brew install michaeldfallen/formula/git-radar
-brew tap cantino/mcfly && brew install mcfly
+brew list git &>/dev/null || brew install git
+brew list eza &>/dev/null || brew install eza
+brew list bat &>/dev/null || brew install bat
+brew list mise &>/dev/null || brew install mise
+brew list diff-so-fancy &>/dev/null || brew install diff-so-fancy
+brew list fzf &>/dev/null || brew install fzf
+brew list starship &>/dev/null || brew install starship
+brew tap cantino/mcfly
+brew list mcfly &>/dev/null || brew install mcfly
+
+# ensure .config directory
+mkdir -p ~/.config
 
 # link dotfiles
 echo "$(tput setaf 2)> Linking dotfiles...$(tput sgr 0)"
@@ -36,11 +40,13 @@ ln -sf ~/sites/dotfiles/psqlrc ~/.psqlrc
 ln -sf ~/sites/dotfiles/rspec ~/.rspec
 ln -sf ~/sites/dotfiles/screenrc ~/.screenrc
 ln -sf ~/sites/dotfiles/sqliterc ~/.sqliterc
+ln -sf ~/sites/dotfiles/starship.toml ~/.config/starship.toml
 ln -sf ~/sites/dotfiles/tmux.conf ~/.tmux.conf
 ln -sf ~/sites/dotfiles/vimrc ~/.vimrc
 ln -sf ~/sites/dotfiles/zshrc ~/.zshrc
 
 # link Ghostty config
+mkdir -p ~/.config/ghostty
 ln -sf ~/sites/dotfiles/config.ghostty ~/.config/ghostty/config.ghostty
 
 # link ZSH theme

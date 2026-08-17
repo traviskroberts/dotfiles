@@ -1,0 +1,46 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$fill\
+$cmd_duration\
+$line_break\
+$character"""
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+[cmd_duration]
+format = "[\\[$duration\\]]($style) "
+min_time = 1_000
+
+# Staged and unstaged share letters; group position and color distinguish them.
+# Counts carry no style of their own, so they inherit `style` below.
+[git_status]
+style = 'white'
+format = '([$conflicted]($style) )([$ahead_behind]($style) )([$index_added$index_modified$index_deleted$index_typechanged$renamed]($style) )([$worktree_modified$worktree_deleted$worktree_typechanged]($style) )([$untracked$stashed]($style) )'
+
+conflicted = '[U](bold red)${count}'
+ahead = '[⇡](bold purple)${count}'
+behind = '[⇣](bold purple)${count}'
+diverged = '[⇡](bold purple)${ahead_count}[⇣](bold purple)${behind_count}'
+up_to_date = ''
+
+index_added = '[A](green)${count}'
+index_modified = '[M](green)${count}'
+index_deleted = '[D](green)${count}'
+index_typechanged = '[T](green)${count}'
+renamed = '[R](green)${count}'
+
+worktree_modified = '[M](yellow)${count}'
+worktree_deleted = '[D](yellow)${count}'
+worktree_typechanged = '[T](yellow)${count}'
+
+untracked = '[?](white)${count}'
+stashed = '[\$](cyan)${count}'
+
+[fill]
+symbol = ' '
