@@ -32,7 +32,7 @@ else
   # install starship (Linux)
   if [ ! -x "$(command -v starship)" ]; then
     echo "$(tput setaf 2)> Installing starship...$(tput sgr 0)"
-    curl -sS https://starship.rs/install.sh | sh
+    curl -sS https://starship.rs/install.sh | sh -s -- -y
   fi
 fi
 
