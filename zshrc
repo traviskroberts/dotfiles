@@ -1,6 +1,10 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+# Resolve the dotfiles repo location (this file is usually reached via the
+# ~/.zshrc symlink, so follow it back to find where the repo actually lives).
+DOTFILES_DIR="$(dirname "${${(%):-%N}:A}")"
+
 # Customize to your needs...
 export PATH=/opt/homebrew/sbin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/share/npm/bin:/usr/local/heroku/bin:$PATH
 
@@ -58,11 +62,11 @@ COMPLETION_WAITING_DOTS="true"
 plugins=()
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/sites/dotfiles/aliases
-source $HOME/sites/dotfiles/jira
-source $HOME/sites/dotfiles/k8functions
+source "$DOTFILES_DIR/aliases"
+source "$DOTFILES_DIR/jira"
+source "$DOTFILES_DIR/k8functions"
 
 [[ -s "/usr/local/bin/direnv" ]] && eval "$(direnv hook zsh)"
 command -v mcfly &>/dev/null && eval "$(mcfly init zsh)"
 command -v mise &>/dev/null && eval "$(mise activate zsh)"
-[[ -s "$HOME/sites/dotfiles/init.sh" ]] && source "$HOME/sites/dotfiles/init.sh"
+[[ -s "$DOTFILES_DIR/init.sh" ]] && source "$DOTFILES_DIR/init.sh"
