@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
-# install homebrew
-if [ ! -x "$(command -v brew)" ]; then
-  echo "$(tput setaf 2)> Installing homebrew...$(tput sgr 0)"
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# install homebrew (macOS only)
+if [ "$(uname -s)" = "Darwin" ]; then
+  if [ ! -x "$(command -v brew)" ]; then
+    echo "$(tput setaf 2)> Installing homebrew...$(tput sgr 0)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
 fi
 
 # install oh-my-zsh
@@ -12,46 +16,48 @@ if [ ! -d ~/.oh-my-zsh ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-# install homebrew packages
-echo "$(tput setaf 2)> Installing homebrew packages...$(tput sgr 0)"
-brew list git &>/dev/null || brew install git
-brew list eza &>/dev/null || brew install eza
-brew list bat &>/dev/null || brew install bat
-brew list mise &>/dev/null || brew install mise
-brew list diff-so-fancy &>/dev/null || brew install diff-so-fancy
-brew list fzf &>/dev/null || brew install fzf
-brew list starship &>/dev/null || brew install starship
-brew tap cantino/mcfly
-brew list mcfly &>/dev/null || brew install mcfly
+# install homebrew packages (macOS only)
+if [ "$(uname -s)" = "Darwin" ]; then
+  echo "$(tput setaf 2)> Installing homebrew packages...$(tput sgr 0)"
+  brew list git &>/dev/null || brew install git
+  brew list eza &>/dev/null || brew install eza
+  brew list bat &>/dev/null || brew install bat
+  brew list mise &>/dev/null || brew install mise
+  brew list diff-so-fancy &>/dev/null || brew install diff-so-fancy
+  brew list fzf &>/dev/null || brew install fzf
+  brew list starship &>/dev/null || brew install starship
+  brew tap cantino/mcfly
+  brew list mcfly &>/dev/null || brew install mcfly
+fi
 
 # ensure .config directory
 mkdir -p ~/.config
 
 # link dotfiles
 echo "$(tput setaf 2)> Linking dotfiles...$(tput sgr 0)"
-ln -sf ~/sites/dotfiles/ackrc ~/.ackrc
-ln -sf ~/sites/dotfiles/bashrc ~/.bashrc
-ln -sf ~/sites/dotfiles/editorconfig ~/.editorconfig
-ln -sf ~/sites/dotfiles/gemrc ~/.gemrc
-ln -sf ~/sites/dotfiles/gitconfig ~/.gitconfig
-ln -sf ~/sites/dotfiles/irbrc ~/.irbrc
-ln -sf ~/sites/dotfiles/pryrc ~/.pryrc
-ln -sf ~/sites/dotfiles/psqlrc ~/.psqlrc
-ln -sf ~/sites/dotfiles/rspec ~/.rspec
-ln -sf ~/sites/dotfiles/screenrc ~/.screenrc
-ln -sf ~/sites/dotfiles/sqliterc ~/.sqliterc
-ln -sf ~/sites/dotfiles/starship.toml ~/.config/starship.toml
-ln -sf ~/sites/dotfiles/tmux.conf ~/.tmux.conf
-ln -sf ~/sites/dotfiles/vimrc ~/.vimrc
-ln -sf ~/sites/dotfiles/zshrc ~/.zshrc
+ln -sf "$DOTFILES_DIR/ackrc" ~/.ackrc
+ln -sf "$DOTFILES_DIR/bashrc" ~/.bashrc
+ln -sf "$DOTFILES_DIR/editorconfig" ~/.editorconfig
+ln -sf "$DOTFILES_DIR/gemrc" ~/.gemrc
+ln -sf "$DOTFILES_DIR/gitconfig" ~/.gitconfig
+ln -sf "$DOTFILES_DIR/irbrc" ~/.irbrc
+ln -sf "$DOTFILES_DIR/pryrc" ~/.pryrc
+ln -sf "$DOTFILES_DIR/psqlrc" ~/.psqlrc
+ln -sf "$DOTFILES_DIR/rspec" ~/.rspec
+ln -sf "$DOTFILES_DIR/screenrc" ~/.screenrc
+ln -sf "$DOTFILES_DIR/sqliterc" ~/.sqliterc
+ln -sf "$DOTFILES_DIR/starship.toml" ~/.config/starship.toml
+ln -sf "$DOTFILES_DIR/tmux.conf" ~/.tmux.conf
+ln -sf "$DOTFILES_DIR/vimrc" ~/.vimrc
+ln -sf "$DOTFILES_DIR/zshrc" ~/.zshrc
 
 # link Ghostty config
 mkdir -p ~/.config/ghostty
-ln -sf ~/sites/dotfiles/config.ghostty ~/.config/ghostty/config.ghostty
+ln -sf "$DOTFILES_DIR/config.ghostty" ~/.config/ghostty/config.ghostty
 
 # link ZSH theme
-ln -sf ~/sites/dotfiles/zsh/travis.zsh-theme ~/.oh-my-zsh/themes/travis.zsh-theme
+ln -sf "$DOTFILES_DIR/zsh/travis.zsh-theme" ~/.oh-my-zsh/themes/travis.zsh-theme
 
 # link vim theme
 mkdir -p ~/.vim/colors
-ln -sf ~/sites/dotfiles/vim/railscasts.vim ~/.vim/colors/railscasts.vim
+ln -sf "$DOTFILES_DIR/vim/railscasts.vim" ~/.vim/colors/railscasts.vim
