@@ -28,6 +28,12 @@ if [ "$(uname -s)" = "Darwin" ]; then
   brew list starship &>/dev/null || brew install starship
   brew tap cantino/mcfly
   brew list mcfly &>/dev/null || brew install mcfly
+else
+  # install starship (Linux)
+  if [ ! -x "$(command -v starship)" ]; then
+    echo "$(tput setaf 2)> Installing starship...$(tput sgr 0)"
+    curl -sS https://starship.rs/install.sh | sh
+  fi
 fi
 
 # ensure .config directory

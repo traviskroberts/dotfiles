@@ -4,16 +4,16 @@ ZSH=$HOME/.oh-my-zsh
 # Customize to your needs...
 export PATH=/opt/homebrew/sbin:/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$HOME/bin:$HOME/.local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/share/npm/bin:/usr/local/heroku/bin:$PATH
 
-# Homebrew
-eval "$(brew shellenv)"
+# Homebrew (macOS/Linuxbrew, if installed)
+[ -x "$(command -v brew)" ] && eval "$(brew shellenv)"
 
 export GIT_RADAR_FORMAT=" %{$fg[magenta]%}git%{$reset_color%}:(%{remote: }%{branch}%{ :local})%{$reset_color%}%{ :changes}"
 export AWS_CREDENTIAL_FILE=$HOME/.aws/credentials
 export RACK_ENV="development"
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-# Use cert.pm from ca-certificates
-if [ -f "$(brew --prefix)/etc/ca-certificates/cert.pem" ]; then
+# Use cert.pem from ca-certificates (Homebrew only)
+if [ -x "$(command -v brew)" ] && [ -f "$(brew --prefix)/etc/ca-certificates/cert.pem" ]; then
   export SSL_CERT_FILE=$(brew --prefix)/etc/ca-certificates/cert.pem
 fi
 
@@ -63,6 +63,6 @@ source $HOME/sites/dotfiles/jira
 source $HOME/sites/dotfiles/k8functions
 
 [[ -s "/usr/local/bin/direnv" ]] && eval "$(direnv hook zsh)"
-[[ -s $(brew --prefix mcfly) ]] && eval "$(mcfly init zsh)"
-[[ -s $(brew --prefix mise) ]] && eval "$(mise activate zsh)"
+command -v mcfly &>/dev/null && eval "$(mcfly init zsh)"
+command -v mise &>/dev/null && eval "$(mise activate zsh)"
 [[ -s "$HOME/sites/dotfiles/init.sh" ]] && source "$HOME/sites/dotfiles/init.sh"
