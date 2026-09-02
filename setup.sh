@@ -2,38 +2,17 @@
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# install homebrew (macOS only)
-if [ "$(uname -s)" = "Darwin" ]; then
-  if [ ! -x "$(command -v brew)" ]; then
-    echo "$(tput setaf 2)> Installing homebrew...$(tput sgr 0)"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  fi
-fi
-
 # install oh-my-zsh
 if [ ! -d ~/.oh-my-zsh ]; then
   echo "$(tput setaf 2)> Installing oh-my-zsh...$(tput sgr 0)"
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
-# install homebrew packages (macOS only)
+# install packages (macOS via Homebrew, Ubuntu via apt/official installers)
 if [ "$(uname -s)" = "Darwin" ]; then
-  echo "$(tput setaf 2)> Installing homebrew packages...$(tput sgr 0)"
-  brew list git &>/dev/null || brew install git
-  brew list eza &>/dev/null || brew install eza
-  brew list bat &>/dev/null || brew install bat
-  brew list mise &>/dev/null || brew install mise
-  brew list diff-so-fancy &>/dev/null || brew install diff-so-fancy
-  brew list fzf &>/dev/null || brew install fzf
-  brew list starship &>/dev/null || brew install starship
-  brew tap cantino/mcfly
-  brew list mcfly &>/dev/null || brew install mcfly
+  bash "$DOTFILES_DIR/install/mac.sh"
 else
-  # install starship (Linux)
-  if [ ! -x "$(command -v starship)" ]; then
-    echo "$(tput setaf 2)> Installing starship...$(tput sgr 0)"
-    curl -sS https://starship.rs/install.sh | sh -s -- -y
-  fi
+  bash "$DOTFILES_DIR/install/ubuntu.sh"
 fi
 
 # ensure .config directory
