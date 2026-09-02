@@ -40,6 +40,10 @@ ln -sf "$DOTFILES_DIR/zshrc" ~/.zshrc
 mkdir -p ~/.config/ghostty
 ln -sf "$DOTFILES_DIR/config.ghostty" ~/.config/ghostty/config.ghostty
 
+# link ccstatusline config
+mkdir -p ~/.config/ccstatusline
+ln -sf "$DOTFILES_DIR/ccstatusline-settings.json" ~/.config/ccstatusline/settings.json
+
 # link ZSH theme
 ln -sf "$DOTFILES_DIR/zsh/travis.zsh-theme" ~/.oh-my-zsh/themes/travis.zsh-theme
 
