@@ -23,6 +23,9 @@ alias reset_profile="echo -e \"\033]50;SetProfile=Hotkey Window\a\""
 # Docker/Docker Compose
 alias dc="docker-compose"
 
+# bin/dpod
+alias dp="bin/dpod"
+
 # kubernetes
 alias k="kubectl"
 
