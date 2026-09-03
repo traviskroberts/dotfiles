@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
 # install packages (Ubuntu/Debian)
 echo "$(tput setaf 2)> Installing packages...$(tput sgr 0)"
 
 sudo apt-get update
-sudo apt-get install -y git fzf bat
+sudo apt-get install -y git fzf bat jq
 
 mkdir -p ~/.local/bin
 
@@ -51,4 +53,15 @@ fi
 if [ ! -x "$(command -v mcfly)" ]; then
   echo "$(tput setaf 2)> Installing mcfly...$(tput sgr 0)"
   curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sh -s -- --git cantino/mcfly
+fi
+
+# osxkeychain isn't available on Linux; devpods authenticate with a gh token instead
+git config -f "$DOTFILES_DIR/gitconfig" --unset credential.helper 2>/dev/null || true
+
+# devcontainer default statusLine command isn't present on this pod; use ccstatusline instead
+CLAUDE_SETTINGS="$HOME/.claude/settings.json"
+if [ -f "$CLAUDE_SETTINGS" ] && command -v jq >/dev/null; then
+  echo "$(tput setaf 2)> Updating Claude statusLine command...$(tput sgr 0)"
+  tmp_settings="$(mktemp)"
+  jq '.statusLine.command = "npx -y ccstatusline@latest"' "$CLAUDE_SETTINGS" > "$tmp_settings" && mv "$tmp_settings" "$CLAUDE_SETTINGS"
 fi
